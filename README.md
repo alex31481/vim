@@ -24,6 +24,9 @@ Please execute the following commands in your command prompt
     git clone https://github.com/gmarik/Vundle.vim.git c:\vimfiles\bundle\Vundle.vim
 The above command will copy all contents of the vundle plugin into the c:\vimfiles\bundle\Vundle.vim directory effectively installing all scripts that are necessary for the Vundle plugin.
 
+####Install Node.js
+
+####Install jshint via npm
 
 
 The above completes all steps that is required to conitue the setup
