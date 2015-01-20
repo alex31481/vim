@@ -32,13 +32,18 @@ ______
 
 
 
-### Initializing and Updating plugin
+### Initializing and Updating Plugins
 
 launch vim and exeucte the following command
 
      :PluginInstall
 
-The above command will install/update all plugins that are registerd in main.vimrc file. All plugins are installed when you see the word "Done!" your status bar. At this point you are done configuring vim and you are ready to code with it. There are tone of materials online for you to research on vim. Moving to vim is more like a never ending process. However the results is very rewarding from my point of view. So, please do not get discouraged when you are stuck on something. In most casses, you will be able to find your answer via google. If you cannnot find the answer
+The above command will install/update all plugins that are registerd in main.vimrc file. All plugins are installed when you see the word "Done!" your status bar. Restart vim. At this point you are done configuring vim and you are ready to code with it. 
+
+
+______
+##What happens from here and on?
+There are tone of materials online for you to research on vim. Moving to vim is more like a never ending process. However the results is very rewarding from my point of view. So, please do not get discouraged when you are stuck on something. In most casses, you will be able to find your answer via google. If you cannnot find the answer
 then post it on a vim forum.
 
 
