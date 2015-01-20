@@ -1,6 +1,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+
+"Set font to consolas 11
+set guifont=Consolas:h11
+
+"
 " set the runtime path to include Vundle and initialize 
 " setting to my preferred vim location this location can be custom as you 
 " the location to install Vundle
