@@ -6,5 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
+
+"This is the location of thee main.vimrc file downaloaded from github
 source ~/Development/vim-config/main.vimrc 
 

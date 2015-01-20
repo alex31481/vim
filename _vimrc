@@ -11,4 +11,4 @@ call vundle#begin('c:/vimfiles/bundle/Vundle.vim')
 "call vundle#begin('~/some/path/here')
 
 "source from common file between all systems
-source 'c:/vim/main.vimrc'
+source c:\vim\main.vimrc
