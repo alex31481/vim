@@ -6,7 +6,7 @@ filetype off                  " required
 " the location to install Vundle
 set rtp+=c:/vimfiles/bundle/Vundle.vim
 " setting to my preferred vim bundle location this location can be custom as you 
-call vundle#begin('c:/vimfiles/bundle/Vundle.vim')
+call vundle#begin('c:/vimfiles/bundle')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
