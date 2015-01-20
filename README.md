@@ -13,26 +13,30 @@ Please skip this step if you are using mac, Unix or Linux based machiens. The vi
 ### Install Vundle 
 Vundle is a plugin manager a lot like the Sublime Package Conrol. To make things as easy as possible I have chosen to use Vundle so there is not need to clone from repositories other than this one and the Vundle repository. Please complete the previous 2 pre-requisits before continuing on to the next steps.
 ####Mac instructions
-Please execute the following commands in your termnial
+Please execute the following commands in your termnial. 
 
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+The above command will copy all contents of the vundle plugin into the ~/.vim/bundle/Vundle.vim directory effectively installing all scripts that are necessary for the Vundle plugin.
 
 ####Windows instuctions
 Please execute the following commands in your command prompt
 
-    c:\
     git clone https://github.com/gmarik/Vundle.vim.git c:\vimfiles\bundle\Vundle.vim
+The above command will copy all contents of the vundle plugin into the c:\vimfiles\bundle\Vundle.vim directory effectively installing all scripts that are necessary for the Vundle plugin.
 
 
 
-The above will complete all steps that is required to complete the vim setup
+The above completes all steps that is required to conitue the setup
 ______
-## 
-To keep thing simple I have configured files to working a git hub clone of this repository located at c:/vim and I have chose to use c:\vimfiles\bundle to put all the vim plugins.
-### Downloading 
+##.vimrc file configurations 
+
 
 
 ### Initializaing and Update plugin
 
 launch vim and exeucte the following command
      :PluginInstall
+All plugins are installed when you see the word "Done!" your status bar. At this point you are done configuring vim and you are ready to code with it. There are tone of materials online for you to research on vim. Moving to vim is more like a never ending process. However the results is very rewarding from my point of view. So, please do not get discouraged when you are stuck on something. In most casses, you will be able to find your answer via google. If you cannnot find the answer
+then post it on a vim forum.
+
+
