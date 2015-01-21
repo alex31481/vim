@@ -44,6 +44,8 @@ syntax enable
 
 colorscheme distinguished
 
+set autoread
+
 set number
 
 set laststatus=2
