@@ -4,7 +4,7 @@ filetype off                  " required
 
 "Set font to consolas 11
 set guifont=Consolas:h11
-
+set guifont=Monaco:h10
 "
 " set the runtime path to include Vundle and initialize 
 " setting to my preferred vim location this location can be custom as you 
