@@ -17,3 +17,5 @@ call vundle#begin('c:/vimfiles/bundle')
 
 "source from common file between all systems
 source c:\vim\main.vimrc
+"Setting the background 
+highlight normal guibg=#1A1E1F
