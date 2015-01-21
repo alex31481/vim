@@ -15,6 +15,7 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'trusktr/seti.vim'
 
 
 
@@ -42,7 +43,7 @@ set t_Co=256
 
 syntax enable
 
-colorscheme distinguished
+colorscheme seti
 
 set autoread
 
