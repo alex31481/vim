@@ -1,5 +1,8 @@
-
-
+""""""""""""""""""""
+" Seetting a easy leader key
+""""""""""""""""""
+let mapleader = ',' 
+let g:mapleader = ','
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
@@ -16,6 +19,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'trusktr/seti.vim'
+Plugin 'talek/vorax4'
 
 
 
@@ -141,5 +145,12 @@ let g:syntastic_check_on_wq = 0
 
 
 map <c-m> :SyntasticToggleMode <cr>
+"""""""""""""""""""""""""""
+"" Setting time out to give more time for leader key combos
+"""""""""""""""""""""""""""""""""""""
+set timeout
+set timeoutlen=1000
+set ttimeoutlen=100
+
 
 
