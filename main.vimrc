@@ -152,5 +152,5 @@ set timeout
 set timeoutlen=1000
 set ttimeoutlen=100
 
-
-
+" associate *.foo with php filetype
+au BufRead,BufNewFile *.sql setf=plsql
