@@ -59,7 +59,7 @@ The above command will install/update all plugins that are registerd in main.vim
 
 ______
 ##What happens next?
-There are tone of materials online for you to research on vim. Moving to vim is more like a never ending process. However the results is very rewarding from my point of view. So, please do not get discouraged when you are stuck on something. In most casses, you will be able to find your answer via google. If you cannnot find the answer
+There are tons of materials online for you to research on vim. Moving to vim is more like a never ending process. However the results is very rewarding from my point of view. So, please do not get discouraged when you are stuck on something. In most casses, you will be able to find your answer via google. If you cannnot find the answer
 then post it on a vim forum.
 
 
