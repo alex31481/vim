@@ -40,10 +40,12 @@ ______
 ##.vimrc file configurations 
 ###Clone this repository to your machine
 Windows: I am choosing the c:\vim for its simplicity. You may choose other locations but the vimrc file has to be changed accordingly 
+    
     git clone https://github.com/alex31481/vim c:\vim
     
 Mac: I am choosing the ~/Development/vim-config based on my setup. You may choose other locations but the vimrc file has to be changed accordingly 
-    git clone https://github.com/alex31481/vim ~/Development/vim-convig 
+    
+    git clone https://github.com/alex31481/vim ~/Development/vim-config 
 
 ###Setup the vimrc file
 
