@@ -34,6 +34,15 @@ Visit the [node.js website](http://nodejs.org) to install Node.js.
 Execute the following command in your command prompt to install jshint.
     npm install -g jshint
 
+####Caps lock Key remap
+It is much recommended to remap caps lock key to control key for vim users due to the differnce between upper and lower key commands. Please use the following instructions to configure the remapping. I have enabled this for map.
+#####Windows: 
+* Download and Install [autohotkey](http://www.autohotkey.com/)
+* Configure the capslogck.ahk to run on startup
+* Your caps lock is not mapped to control and the .vimrc file contains a plugin that enables a soft capslock via Control-L and Leader-l 
+#####Mac:
+I'll figure it out soon
+
 
 The above completes all steps that is required to continue the setup
 ______

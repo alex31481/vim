@@ -8,7 +8,10 @@ Plugin 'gmarik/Vundle.vim'
 
 
 Plugin 'flazz/vim-colorschemes'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'trusktr/seti.vim'
+
+" Plugin 'jelera/vim-javascript-syntax'
+Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -18,8 +21,9 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tikhomirov/vim-glsl'
-Plugin 'trusktr/seti.vim'
-Plugin 'talek/vorax4'
+Plugin 'pangloss/vim-javascript'
+" Plugin 'talek/vorax4'
+Plugin 'mxw/vim-jsx'
 
 
 
@@ -44,10 +48,13 @@ set history=1000
 set t_Co=256
 
 
-
 syntax enable
 
 colorscheme seti
+
+imap <C-L> <Plug>CapsLockToggle
+nmap <Leader>l <Plug>CapsLockToggle
+inoremap zz <esc>
 
 set autoread
 
@@ -154,3 +161,6 @@ set ttimeoutlen=100
 
 " associate *.foo with php filetype
 au BufRead,BufNewFile *.sql setf=plsql
+
+
+
