@@ -55,6 +55,8 @@ colorscheme seti
 imap <C-L> <Plug>CapsLockToggle
 nmap <Leader>l <Plug>CapsLockToggle
 inoremap zz <esc>
+"to end a line 
+inoremap EE <C-o>A;<esc> 
 
 set autoread
 
