@@ -162,8 +162,7 @@ au BufRead,BufNewFile *.sql setf=plsql
 
 "Customized Keys 
 "caps lock
-imap <C-L> <Plug>CapsLockToggle
-nmap <Leader>l <Plug>CapsLockToggle
+imap <C-u> <Plug>CapsLockToggle
 "get out of edit mode
 imap zz <esc>
 "to end a line 
@@ -172,3 +171,7 @@ nmap <Leader>l <Plug>CapsLockToggle
 "move between windows
 nmap <Leader>w <C-w>w
 imap WW <esc><C-w>w
+imap <C-h> <C-o>h
+imap <C-j> <C-o>j
+imap <C-k> <C-o>k
+imap <C-l> <C-o>l
