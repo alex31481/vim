@@ -22,7 +22,9 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'pangloss/vim-javascript'
+"currently not using plsql with vim the compilation line support is just not there 
 " Plugin 'talek/vorax4'
+"jsx plugin
 Plugin 'mxw/vim-jsx'
 
 
@@ -148,7 +150,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 
-map <c-m> :SyntasticToggleMode <cr>
 """""""""""""""""""""""""""
 "" Setting time out to give more time for leader key combos
 """""""""""""""""""""""""""""""""""""
@@ -173,6 +174,7 @@ endif
 
 "Customized Keys 
 "caps lock
+map <c-m> :SyntasticToggleMode <cr>
 imap <C-u> <Plug>CapsLockToggle
 "get out of edit mode
 imap zz <esc>
