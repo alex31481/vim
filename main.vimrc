@@ -52,11 +52,6 @@ syntax enable
 
 colorscheme seti
 
-imap <C-L> <Plug>CapsLockToggle
-nmap <Leader>l <Plug>CapsLockToggle
-inoremap zz <esc>
-"to end a line 
-inoremap EE <C-o>A;<esc> 
 
 set autoread
 
@@ -165,4 +160,15 @@ set ttimeoutlen=100
 au BufRead,BufNewFile *.sql setf=plsql
 
 
-
+"Customized Keys 
+"caps lock
+imap <C-L> <Plug>CapsLockToggle
+nmap <Leader>l <Plug>CapsLockToggle
+"get out of edit mode
+imap zz <esc>
+"to end a line 
+imap EE <C-o>A;<esc> 
+nmap <Leader>l <Plug>CapsLockToggle
+"move between windows
+nmap <Leader>w <C-w>w
+imap WW <esc><C-w>w
