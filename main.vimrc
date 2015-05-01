@@ -156,9 +156,20 @@ set timeout
 set timeoutlen=1000
 set ttimeoutlen=100
 
-" associate *.foo with php filetype
+" associate sql with plsql syntax
 au BufRead,BufNewFile *.sql setf=plsql
 
+" ingored folders for ctrlp
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/](node_modules|bower_components|\.(git|hg|svn))$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+	\ }
+
+"no sound on error 
+if has("gui_running")
+	autocmd GUIEnter * set vb t_vb=
+endif
 
 "Customized Keys 
 "caps lock
