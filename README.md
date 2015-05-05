@@ -34,6 +34,9 @@ Visit the [node.js website](http://nodejs.org) to install Node.js.
 Execute the following command in your command prompt to install jshint.
     npm install -g jshint
 
+####Install Ag the silver searcher
+Ag is replacement for grep that is super optimized for searching through code for development purposes. It also pays attention to .gitignore. Please refer to it's [githubpage](https://github.com/ggreer/the_silver_searcher) for detailed instalation documentation. I am utilizing the ag.vim plugin inthe vimrc and have added two shortcuts **LEADER-a** for quick search any string and **LEADER-A** for searching string under the cursor. 
+
 ####Caps lock Key remap
 It is much recommended to remap caps lock key to control key for vim users due to the differnce between upper and lower key commands. Please use the following instructions to configure the remapping. I have enabled this for map.
 

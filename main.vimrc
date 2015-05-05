@@ -27,6 +27,7 @@ Plugin 'pangloss/vim-javascript'
 " Plugin 'talek/vorax4'
 "jsx plugin
 Plugin 'mxw/vim-jsx'
+Plugin 'rking/ag.vim'
 
 
 
@@ -196,3 +197,6 @@ nmap <Leader>g :vimgrep <C-R><C-W> .\**\*.*
 "faster saving
 imap <C-s> <esc>:w<cr>
 nmap <Leader>n :NERDTree <cr>
+"ag searcher
+nmap <leader>a :Ag  
+nmap <leader>A :Ag <C-R><C-W>
