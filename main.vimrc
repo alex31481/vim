@@ -19,7 +19,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'maksimr/vim-jsbeautify'
-Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'pangloss/vim-javascript'
@@ -27,6 +26,7 @@ Plugin 'pangloss/vim-javascript'
 " Plugin 'talek/vorax4'
 "jsx plugin
 Plugin 'mxw/vim-jsx'
+Plugin 'Raimondi/delimitMate'
 
 
 
@@ -196,3 +196,4 @@ nmap <Leader>g :vimgrep <C-R><C-W> .\**\*.*
 "faster saving
 imap <C-s> <esc>:w<cr>
 nmap <Leader>n :NERDTree <cr>
+imap <C-S> <esc>:w<cr>
