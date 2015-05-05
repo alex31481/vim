@@ -183,15 +183,16 @@ imap zz <esc>
 imap EE <C-o>A;<esc> 
 nmap <Leader>l <Plug>CapsLockToggle
 "move between windows
+"faster window switch
 nmap <Leader>w <C-w>w
 imap WW <esc><C-w>w
+"faster navigation
 imap <C-h> <C-o>h
 imap <C-j> <C-o>j
 imap <C-k> <C-o>k
 imap <C-l> <C-o>l
-<<<<<<< HEAD
 "faster grep tool
 nmap <Leader>g :vimgrep <C-R><C-W> .\**\*.* 
-=======
+"faster saving
 imap <C-s> <esc>:w<cr>
->>>>>>> origin/master
+nmap <Leader>n :NERDTree <cr>
