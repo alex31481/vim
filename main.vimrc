@@ -19,7 +19,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'maksimr/vim-jsbeautify'
-Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'pangloss/vim-javascript'
@@ -28,6 +27,7 @@ Plugin 'pangloss/vim-javascript'
 "jsx plugin
 Plugin 'mxw/vim-jsx'
 Plugin 'rking/ag.vim'
+Plugin 'Raimondi/delimitMate'
 
 
 
