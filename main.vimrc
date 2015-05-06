@@ -135,7 +135,7 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "Auto Deliminate functionalities
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-let delimitMat_expand_cr = 1
+let g:delimitMate_expand_cr = 2 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "lint stuff
@@ -174,6 +174,11 @@ if has("gui_running")
 	autocmd GUIEnter * set vb t_vb=
 endif
 
+
+
+
+
+
 "Customized Keys 
 "caps lock
 map <c-m> :SyntasticToggleMode <cr>
@@ -195,7 +200,7 @@ imap <C-l> <C-o>l
 "faster grep tool
 nmap <Leader>g :vimgrep <C-R><C-W> .\**\*.* 
 "faster saving
-imap <C-s> <esc>:w<cr>
+map <C-s> <esc>:w<cr>
 nmap <Leader>n :NERDTree <cr>
 "ag searcher
 nmap <leader>a :Ag  
