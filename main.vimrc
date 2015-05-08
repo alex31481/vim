@@ -28,6 +28,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'rking/ag.vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'ujihisa/unite-colorscheme'
+Plugin 'ujihisa/unite-font'
 
 
 
