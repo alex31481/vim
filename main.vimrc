@@ -200,7 +200,9 @@ imap <C-l> <C-o>l
 "faster grep tool
 nmap <Leader>g :vimgrep <C-R><C-W> .\**\*.* 
 "faster saving
-map <C-s> <esc>:w<cr>
+
+imap <C-s> <esc>:w<cr>
+nmap <C-s> <esc>:w<cr>
 nmap <Leader>n :NERDTree <cr>
 "ag searcher
 nmap <leader>a :Ag  
