@@ -144,11 +144,6 @@ let g:delimitMate_expand_cr = 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "lint stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline=%<%f\    " Filename
-"set statusline+=%w%h%m%r " Options
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -182,13 +177,13 @@ endif
 
 
 
-
 "Customized Keys 
 "caps lock
 map <c-m> :SyntasticToggleMode <cr>
 imap <C-u> <Plug>CapsLockToggle
 "get out of edit mode
-imap zz <esc>
+imap jk <esc>
+imap kj <esc>
 "to end a line 
 imap EE <C-o>A;<esc> 
 nmap <Leader>l <Plug>CapsLockToggle
@@ -211,3 +206,13 @@ nmap <Leader>n :NERDTree <cr>
 "ag searcher
 nmap <leader>a :Ag  
 nmap <leader>A :Ag <C-R><C-W>
+nmap ; :
+
+
+
+"Status line
+set statusline=%<%f\    " Filename
+"set statusline+=%w%h%m%r " Options
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
