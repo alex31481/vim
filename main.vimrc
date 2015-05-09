@@ -174,10 +174,14 @@ if has("gui_running")
 endif
 
 
+"Line numbers number
+set number
+autocmd BufEnter * :set relativenumber
+autocmd BufLeave * :set norelativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
 
-
-
-"Customized Keys 
+"Customized Key map
 "caps lock
 map <c-m> :SyntasticToggleMode <cr>
 imap <C-u> <Plug>CapsLockToggle

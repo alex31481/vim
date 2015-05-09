@@ -11,14 +11,19 @@ Capslock::Ctrl
 #IfWinActive ahk_exe sublime_text.exe
 Escape::
 SetCapsLockState off
-send {Escape}
+
 #IfWinActive
 
 #IfWinActive ahk_exe idea64.exe
 Escape::
 SetCapsLockState off
 send {Escape}
+
 #IfWinActive
 
 
+#IfWinActive ahk_exe idea.exe
+Escape::
+SetCapsLockState off
+#IfWinActive
 
