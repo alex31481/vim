@@ -18,12 +18,11 @@ SetCapsLockState off
 Escape::
 SetCapsLockState off
 send {Escape}
-
 #IfWinActive
 
 
 #IfWinActive ahk_exe idea.exe
 Escape::
 SetCapsLockState off
+send {Escape}
 #IfWinActive
-
