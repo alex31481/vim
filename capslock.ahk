@@ -5,12 +5,16 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #IfWinActive ahk_exe gvim.exe
 Capslock::Ctrl
+Escape::
+SetCapsLockState off
+send {Escape}
 #IfWinActive
 
 
 #IfWinActive ahk_exe sublime_text.exe
 Escape::
 SetCapsLockState off
+send {Escape}
 
 #IfWinActive
 
@@ -26,3 +30,4 @@ Escape::
 SetCapsLockState off
 send {Escape}
 #IfWinActive
+
