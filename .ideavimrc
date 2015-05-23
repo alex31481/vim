@@ -1,0 +1,8 @@
+set visualbell
+set noerrorbells
+set relativenumber
+set number
+"get out of edit mode
+imap jk <esc>
+imap kj <esc>
+nmap ; :

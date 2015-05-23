@@ -190,10 +190,6 @@ imap kj <esc>
 "to end a line 
 imap EE <C-o>A;<esc> 
 nmap <Leader>l <Plug>CapsLockToggle
-"move between windows
-"faster window switch
-nmap <Leader>w <C-w>w
-imap WW <esc><C-w>w
 "faster navigation
 imap <C-h> <C-o>h
 imap <C-j> <C-o>j
