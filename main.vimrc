@@ -31,6 +31,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'ujihisa/unite-colorscheme'
+Plugin 'tpope/vim-fugitive'
 
 
 
@@ -206,6 +207,7 @@ nmap <Leader>n :NERDTree <cr>
 nmap <leader>a :Ag  
 nmap <leader>A :Ag <C-R><C-W>
 nmap ; :
+nmap <leader>m :% !xmllint.exe % --format
 
 
 
