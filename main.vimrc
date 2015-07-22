@@ -207,7 +207,6 @@ nmap <Leader>n :NERDTree <cr>
 nmap <leader>a :Ag  
 nmap <leader>A :Ag <C-R><C-W>
 nmap ; :
-nmap <leader>m :% !xmllint.exe % --format
 
 
 
