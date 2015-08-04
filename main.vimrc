@@ -208,7 +208,18 @@ nmap <leader>a :Ag
 nmap <leader>A :Ag <C-R><C-W>
 nmap ; :
 
-
+"""""""""""""""
+"Faster editing
+"""""""""""""""
+"change word case
+nmap <Leader>c viw~ 
+"replace line
+nmap <Leader>rl pk"_dd
+"replace word
+nmap <Leader>rw "_diwP
+"paste register 0
+nmap <Leader>p "0p
+nmap <Leader>P "0P
 
 "Status line
 set statusline=%<%f\    " Filename
