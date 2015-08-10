@@ -22,6 +22,11 @@ send {Escape}
 Escape::
 SetCapsLockState off
 send {Escape}
+return
+
+LAlt & j:: send {Down}
+LAlt & k:: send {Up}
+
 #IfWinActive
 
 
@@ -29,5 +34,8 @@ send {Escape}
 Escape::
 SetCapsLockState off
 send {Escape}
+return
+LAlt & j:: send {Down}
+LAlt & k:: send {Up}
 #IfWinActive
 
