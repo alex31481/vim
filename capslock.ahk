@@ -4,38 +4,47 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #IfWinActive ahk_exe gvim.exe
++Capslock::Capslock
 Capslock::Ctrl
-Escape::
-SetCapsLockState off
-send {Escape}
+;Escape
+;SetCapsLockState off
+;send {Escape}
 #IfWinActive
 
 
 #IfWinActive ahk_exe sublime_text.exe
-Escape::
-SetCapsLockState off
-send {Escape}
-
+;Escape:
+;SetCapsLockState off
+;send {Escape}
++Capslock::Capslock
+Capslock::Ctrl
 #IfWinActive
 
 #IfWinActive ahk_exe idea64.exe
-Escape::
-SetCapsLockState off
-send {Escape}
-return
-
+;Escape
+;SetCapsLockState off
+;send {Escape}
+;return
 LAlt & j:: send {Down}
 LAlt & k:: send {Up}
-
+LAlt & h:: send {Left}
+LAlt & l:: send {Right}
++Capslock::Capslock
+Capslock::Ctrl
 #IfWinActive
 
 
 #IfWinActive ahk_exe idea.exe
-Escape::
-SetCapsLockState off
-send {Escape}
-return
+;Escape:
+;SetCapsLockState off
+;send {Escape}
+;return
 LAlt & j:: send {Down}
 LAlt & k:: send {Up}
+LAlt & h:: send {Left}
+LAlt & l:: send {Right}
++Capslock::Capslock
+Capslock::Ctrl
+
 #IfWinActive
 
