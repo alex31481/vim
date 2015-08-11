@@ -1,7 +1,8 @@
 let mapleader = ',' 
 let g:mapleader = ','
 
-set smartcase
+set ignorecase
+
 set visualbell
 set noerrorbells
 set relativenumber
@@ -22,3 +23,8 @@ nmap <Leader>rw "_diwP
 "paste register 0
 nmap <Leader>p "0p
 nmap <Leader>P "0P
+
+
+"intellij short cuts
+nmap <Leader>f :action ReformatCode <CR>
+nmap <Leader>rr :action Rerun <CR>
