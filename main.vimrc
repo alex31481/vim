@@ -32,6 +32,7 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'ujihisa/unite-colorscheme'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tfnico/vim-gradle'
 
 
 
