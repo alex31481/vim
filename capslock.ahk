@@ -16,6 +16,7 @@ Capslock::Ctrl
 ;Escape:
 ;SetCapsLockState off
 ;send {Escape}
+
 +Capslock::Capslock
 Capslock::Ctrl
 #IfWinActive
@@ -25,12 +26,17 @@ Capslock::Ctrl
 ;SetCapsLockState off
 ;send {Escape}
 ;return
-LAlt & j:: send {Down}
-LAlt & k:: send {Up}
-LAlt & h:: send {Left}
-LAlt & l:: send {Right}
+
+
 +Capslock::Capslock
 Capslock::Ctrl
+
+!j:: send {Down}
+!k:: send {Up}
+!h:: send {Left}
+!l:: send {right}
+
+
 #IfWinActive
 
 
@@ -39,12 +45,9 @@ Capslock::Ctrl
 ;SetCapsLockState off
 ;send {Escape}
 ;return
-LAlt & j:: send {Down}
-LAlt & k:: send {Up}
-LAlt & h:: send {Left}
-LAlt & l:: send {Right}
 +Capslock::Capslock
 Capslock::Ctrl
+
 
 #IfWinActive
 

@@ -26,5 +26,11 @@ nmap <Leader>P "0P
 
 
 "intellij short cuts
-nmap <Leader>f :action ReformatCode <CR>
-nmap <Leader>rr :action Rerun <CR>
+nmap <Leader>f :action ReformatCode<CR>
+nmap <Leader>rr :action Rerun<CR>
+nmap <Leader>b :action JumpToLastChange<CR>
+nmap <Leader>rc :action CompileDirty<CR>
+nmap <Leader>rf :action Compile<CR>
+nmap <Leader>j :action InsertLiveTemplate<CR>
+vmap <Leader>j :action InsertLiveTemplate<CR>
+nmap <Leader>k :action CheckinProject<CR>
