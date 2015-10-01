@@ -18,5 +18,6 @@ call vundle#begin('c:/vimfiles/bundle')
 
 "source from common file between all systems
 source c:\vim\main.vimrc
+nmap <leader>x :% !xmllint.exe % --format
 "Setting the background 
 highlight normal guibg=#151718
