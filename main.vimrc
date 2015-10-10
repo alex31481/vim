@@ -24,16 +24,17 @@ Plugin 'tikhomirov/vim-glsl'
 Plugin 'pangloss/vim-javascript'
 "currently not using plsql with vim the compilation line support is just not there 
 " Plugin 'talek/vorax4'
-"jsx plugin
+" jsx plugin
 Plugin 'mxw/vim-jsx'
 Plugin 'rking/ag.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
-Plugin 'ujihisa/unite-colorscheme'
+" Plugin 'ujihisa/unite-colorscheme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tfnico/vim-gradle'
 Plugin 'fatih/vim-go'
+Plugin 'jonathanfilip/vim-lucius'
 
 
 
@@ -55,14 +56,8 @@ filetype plugin indent on    " required
 "sets how many lines of history VIM has to remember
 set history=1000
 
-set t_Co=256
-
 
 syntax enable
-
-colorscheme seti
-
-
 set autoread
 
 set number
@@ -173,6 +168,13 @@ let g:ctrlp_custom_ignore = {
 "no sound on error 
 if has("gui_running")
 	autocmd GUIEnter * set vb t_vb=
+  set term=xterm-256color
+  set t_Co=256
+  colorscheme seti
+else
+  colorscheme lucius
+  LuciusBlack
+
 endif
 
 
