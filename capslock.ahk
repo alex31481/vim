@@ -36,15 +36,12 @@ Capslock::Ctrl
 ;send {Escape}
 ;return
 
-
-+Capslock::Capslock
 Capslock::Ctrl
 
 !j:: send {Down}
 !k:: send {Up}
 !h:: send {Left}
 !l:: send {right}
-
 
 #IfWinActive
 
