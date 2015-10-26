@@ -20,6 +20,8 @@ nmap <Leader>c viw~
 nmap <Leader>rl pk"_dd
 "replace word
 nmap <Leader>rw "_diwP
+"replace selected 
+vmap <Leader>rw "_dP
 "paste register 0
 nmap <Leader>p "0p
 nmap <Leader>P "0P
@@ -32,5 +34,9 @@ nmap <Leader>b :action JumpToLastChange<CR>
 nmap <Leader>rc :action CompileDirty<CR>
 nmap <Leader>rf :action Compile<CR>
 nmap <Leader>j :action InsertLiveTemplate<CR>
-vmap <Leader>j :action InsertLiveTemplate<CR>
 nmap <Leader>k :action CheckinProject<CR>
+nmap <Space>n :action NewClass<CR>
+nmap ] :action MethodDown <CR>
+nmap [ :action MethodUp <CR>
+nmap <Space>vs :source ~/.ideavimrc<CR>
+nmap <Space>b :action Git.Branches <CR>
