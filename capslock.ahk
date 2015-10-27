@@ -45,6 +45,10 @@ Capslock::Ctrl
 
 #IfWinActive
 
+#IfWinActive ahk_exe putty.exe
+Capslock::Ctrl
+#IfWinActive
+
 
 #IfWinActive ahk_exe idea.exe
 ;Escape:
@@ -53,7 +57,5 @@ Capslock::Ctrl
 ;return
 +Capslock::Capslock
 Capslock::Ctrl
-
-
 #IfWinActive
 
