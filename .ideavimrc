@@ -36,7 +36,8 @@ nmap <Leader>rf :action Compile<CR>
 nmap <Leader>j :action InsertLiveTemplate<CR>
 nmap <Leader>k :action CheckinProject<CR>
 nmap <Space>n :action NewClass<CR>
-nmap ] :action MethodDown <CR>
-nmap [ :action MethodUp <CR>
+nmap ] :action VimMotionScrollPageDown <CR>
+nmap [ :action VimMotionScrollPageUp <CR>
 nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
+nmap <Space>z :action ShowNavBar <CR>
