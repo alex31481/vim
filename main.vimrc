@@ -171,15 +171,23 @@ let g:ctrlp_custom_ignore = {
 "no sound on error 
 if has("gui_running")
 	autocmd GUIEnter * set vb t_vb=
-  set term=xterm-256color
-  set t_Co=256
+  " set term=xterm-256color
+  if has("win32")
+    set term=win32
+  else
+    set term=xterm-256color
+  endif
   colorscheme seti
 else
-  " colorscheme lucius
-  " LuciusBlack
-
+  if(has("win32") || has("win16"))
+    colorscheme industry
+  else
+    colorscheme lucius
+    LuciusBlack
+  endif
 endif
 
+set t_Co=256
 
 "Line numbers number
 set number
