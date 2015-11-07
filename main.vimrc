@@ -35,6 +35,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tfnico/vim-gradle'
 Plugin 'fatih/vim-go'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'dag/vim-fish'
+Plugin 'sjl/threesome.vim'
+
 
 
 
@@ -94,7 +97,7 @@ set mat=2
 
 " No annoying sound on errors
 set noerrorbells
-set novisualbell
+set visualbell
 set t_vb=
 set tm=500
 
@@ -172,8 +175,8 @@ if has("gui_running")
   set t_Co=256
   colorscheme seti
 else
-  colorscheme lucius
-  LuciusBlack
+  " colorscheme lucius
+  " LuciusBlack
 
 endif
 
