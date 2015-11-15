@@ -40,3 +40,4 @@ nmap ] :action VimMotionScrollPageDown <CR>
 nmap [ :action VimMotionScrollPageUp <CR>
 nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
+nmap <Leader>, :action AceJumpAction <CR>

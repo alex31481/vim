@@ -40,6 +40,7 @@ Plugin 'fatih/vim-go'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'dag/vim-fish'
 Plugin 'sjl/threesome.vim'
+Plugin 'easymotion/vim-easymotion'
 
 
 
