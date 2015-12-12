@@ -25,10 +25,28 @@ Capslock::Ctrl
 ;Escape:
 ;SetCapsLockState off
 ;send {Escape}
-
 +Capslock::Capslock
 Capslock::Ctrl
 #IfWinActive
+
+#IfWinActive ahk_exe slack.exe
+Capslock::Ctrl
+#IfWinActive
+
+#IfWinActive ahk_exe atom.exe
+Capslock::Ctrl
+#IfWinActive
+
+
+
+#IfWinActive ahk_exe emacs.exe
+;Escape:
+;SetCapsLockState off
+;send {Escape}
++Capslock::Capslock
+Capslock::Ctrl
+#IfWinActive
+
 
 #IfWinActive ahk_exe idea64.exe
 ;Escape
