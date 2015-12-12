@@ -38,12 +38,29 @@ Capslock::Ctrl
 
 Capslock::Ctrl
 
-!j:: send {Down}
-!k:: send {Up}
-!h:: send {Left}
-!l:: send {right}
+!j::sendInput {Down}
+!k::sendInput {Up}
+!h::sendInput {Left}
+!l::sendInput {right}
+!p::sendInput {Up}
+!n::sendInput {Down}
+
 
 #IfWinActive
+
+#IfWinActive ahk_exe notepad.exe
+Capslock::Ctrl
+
+!j::sendInput {Down}
+!k::sendInput {Up}
+!h::sendInput {Left}
+!l::sendInput {right}
+!p::sendInput {Up}
+!n::sendInput {Down}
+
+
+#IfWinActive
+
 
 #IfWinActive ahk_exe putty.exe
 Capslock::Ctrl

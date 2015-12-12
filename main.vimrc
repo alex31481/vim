@@ -41,6 +41,7 @@ Plugin 'jonathanfilip/vim-lucius'
 Plugin 'dag/vim-fish'
 Plugin 'sjl/threesome.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'mtscout6/vim-cjsx'
 
 
 
