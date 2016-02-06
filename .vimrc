@@ -9,5 +9,5 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 "This is the location of thee main.vimrc file downaloaded from github
-source ~/Development/vim/main.vimrc 
+source ~/editor-config/main.vimrc 
 

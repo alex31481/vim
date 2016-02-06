@@ -16,7 +16,7 @@ Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'scrooloose/syntastic'
@@ -31,17 +31,22 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 " Plugin 'ujihisa/unite-colorscheme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tfnico/vim-gradle'
 Plugin 'fatih/vim-go'
-Plugin 'jonathanfilip/vim-lucius'
+" Plugin 'jonathanfilip/vim-lucius'
 Plugin 'dag/vim-fish'
 Plugin 'sjl/threesome.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'mtscout6/vim-cjsx'
+Plugin 'vim-airline/vim-airline'
+Plugin 'ruanyl/vim-fixmyjs'
+"Plugin 'ervandew/SuperTab'
+"Plugin 'mxw/vim-jsx'
+
 
 
 
@@ -67,6 +72,7 @@ set history=1000
 
 syntax enable
 set autoread
+set autowriteall
 
 set number
 
@@ -152,8 +158,14 @@ let g:delimitMate_expand_cr = 2
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1 
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_mode_map = {
+        \ "mode": "active",
+        \ "active_filetypes": [],
+        \ "passive_filetypes": ["javascript"] }
+
 
 
 """""""""""""""""""""""""""
@@ -187,8 +199,10 @@ else
   if(has("win32") || has("win16"))
     colorscheme industry
   else
-    colorscheme lucius
-    LuciusBlack
+    colorscheme mustang
+  " else
+  "   colorscheme lucius
+  "   LuciusBlack
   endif
 endif
 
@@ -203,7 +217,7 @@ autocmd InsertLeave * :set relativenumber
 
 "Customized Key map
 "caps lock
-map <c-m> :SyntasticToggleMode <cr>
+" map <c-m> :SyntasticToggleMode <cr>
 "imap <C-u> <Plug>CapsLockToggle
 "get out of edit mode
 imap jk <esc>
@@ -229,7 +243,11 @@ nmap <Leader>n :NERDTree <cr>
 nmap <leader>a :Ag  
 nmap <leader>A :Ag <C-R><C-W>
 nmap ; :
-
+nmap <C-p> :Unite file_rec/git buffer<cr>i
+nmap <Space>s :w<cr> :SyntasticCheck<cr>
+nmap <leader>f :Fixmyjs<cr> :w<cr> :SyntasticCheck<cr>
+nmap <leader>s :w<cr>
+" for word comletion
 
 """""""""""""""
 "Faster editing
@@ -253,10 +271,12 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=%*
 
 
+
 "copy and paste toggle
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
 
 
 
@@ -334,3 +354,25 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+" quick snippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
