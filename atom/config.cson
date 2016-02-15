@@ -1,0 +1,26 @@
+"*":
+  "atom-ternjs":
+    displayAboveSnippets: true
+    useSnippets: true
+    useSnippetsAndFunction: true
+  "autocomplete-plus":
+    useCoreMovementCommands: false
+  autosave:
+    enabled: true
+  core:
+    autoHideMenuBar: true
+    packagesWithKeymapsDisabled: [
+      "emmet"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+  emmet: {}
+  "exception-reporting":
+    userId: "4ea8d1bc-9c6b-b1ad-d15e-db454f3f8365"
+  "goto-last-edit": {}
+  linter: {}
+  welcome:
+    showOnStartup: false
