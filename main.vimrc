@@ -277,7 +277,21 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+"easymotion search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+"smart case easymotion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1 " US layout
+
+nmap <space>e <Plug>(easymotion-s2)
 
 
 """"""""""""""""""""""""""""""""""""
@@ -320,7 +334,7 @@ function! s:my_cr_function()
   "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-y>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
