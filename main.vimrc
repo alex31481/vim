@@ -44,6 +44,7 @@ Plugin 'sjl/threesome.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'ruanyl/vim-fixmyjs'
+Plugin 'mhartington/oceanic-next'
 "Plugin 'ervandew/SuperTab'
 "Plugin 'mxw/vim-jsx'
 
@@ -78,7 +79,6 @@ set number
 
 set laststatus=2
 
-set background=dark
 
 "Height of the command bar
 set cmdheight=2
@@ -179,12 +179,13 @@ set ttimeoutlen=100
 au BufRead,BufNewFile *.sql setf=plsql
 
 " ingored folders for ctrlp
-let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/](node_modules|bower_components|\.(git|hg|svn))$',
-	\ 'file': '\v\.(exe|so|dll)$',
-	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-	\ }
+" let g:ctrlp_custom_ignore = {
+" 	\ 'dir':  '\v[\/](node_modules|bower_components|\.(git|hg|svn))$',
+" 	\ 'file': '\v\.(exe|so|dll)$',
+" 	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+" 	\ }
 
+set t_Co=256
 "no sound on error 
 if has("gui_running")
 	autocmd GUIEnter * set vb t_vb=
@@ -194,7 +195,8 @@ if has("gui_running")
   else
     set term=xterm-256color
   endif
-  colorscheme seti
+  colorscheme OceanicNext
+  let g:airline_theme='oceanicnext'
 else
   if(has("win32") || has("win16"))
     colorscheme industry
@@ -206,7 +208,8 @@ else
   endif
 endif
 
-set t_Co=256
+set background=dark
+
 
 "Line numbers number
 set number
