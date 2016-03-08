@@ -50,8 +50,6 @@ Plugin 'mhartington/oceanic-next'
 
 
 
-
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -133,6 +131,7 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+set backspace=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto format 
@@ -147,10 +146,6 @@ autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Auto Deliminate functionalities
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:delimitMate_expand_cr = 2 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "lint stuff
@@ -296,6 +291,13 @@ let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 nmap <space>e <Plug>(easymotion-s2)
 
+""""""""""""""""""""""""""""""""""
+"dalimiate stuff
+""""""""""""""""""""""""""""""""""
+let delimitMate_expand_cr = 2
+let delimitMate_expand_space = 1
+let delimitMate_jump_expansion = 1
+
 
 """"""""""""""""""""""""""""""""""""
 "Shougo vim autocomplete stff
@@ -308,6 +310,7 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
+let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
@@ -336,8 +339,6 @@ function! s:my_cr_function()
   " For no inserting <CR> key.
   "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-y>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -380,12 +381,11 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-y>" : "\<TAB>"
+inoremap <expr><TAB>
+ \ pumvisible() ? "\<C-y>" : "\<TAB>"
+
 
 " For conceal markers.
 if has('conceal')
