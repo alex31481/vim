@@ -10,6 +10,13 @@ Capslock::Ctrl
 
 #IfWinActive
 
+#IfWinActive ahk_exe CDViewer.exe
+Capslock::Ctrl
+
+#IfWinActive
+
+
+
 
 
 #IfWinActive ahk_exe gvim.exe

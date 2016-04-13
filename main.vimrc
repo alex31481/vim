@@ -45,6 +45,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'ruanyl/vim-fixmyjs'
 Plugin 'mhartington/oceanic-next'
+Plugin 'Yggdroot/indentLine'
 "Plugin 'ervandew/SuperTab'
 "Plugin 'mxw/vim-jsx'
 
