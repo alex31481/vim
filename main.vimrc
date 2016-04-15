@@ -196,7 +196,9 @@ else
   if(has("win32") || has("win16"))
     colorscheme industry
   else
-    colorscheme mustang
+    colorscheme OceanicNext
+    let g:airline_theme='oceanicnext'
+  "  colorscheme mustang
   " else
   "   colorscheme lucius
   "   LuciusBlack
