@@ -1,10 +1,13 @@
 " Neovim-qt Guifont command
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
 " Set the font to DejaVu Sans Mono:h13
-Guifont DejaVu Sans Mono:h12
+" Guifont DejaVu Sans Mono:h13
+" Guifont Inconsolata:h12
+Guifont DejaVu Sans Mono for Powerline:h13
+" Guifont Ubuntu Mono derivative Powerline Regular:h12
 
 
-call plug#begin('c:/nvim-config/nvim/plugged')
+call plug#begin('C:/nvim/nvim/plugged')
 Plug 'mhartington/oceanic-next'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -12,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
  " Theme
@@ -61,10 +65,10 @@ set showmatch
 set mat=2
 
 " No annoying sound on errors
-" set noerrorbells
-" set visualbell
-" set t_vb=
-" set tm=500
+set noerrorbells
+set visualbell
+set t_vb=
+set tm=500
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,3 +121,19 @@ set statusline+=%#warningmsg#
 set statusline+=%{fugitive#statusline()}
 set statusline+=%*
 let g:airline_theme='oceanicnext'
+
+"easymotion search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+"smart case easymotion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1 " US layout
+
+nmap <space>e <Plug>(easymotion-s2)
