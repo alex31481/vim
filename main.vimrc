@@ -242,7 +242,7 @@ nmap <Leader>n :NERDTree <cr>
 nmap <leader>a :Ag  
 nmap <leader>A :Ag <C-R><C-W>
 nmap ; :
-nmap <C-p> :Unite file_rec/git buffer<cr>i
+nmap <C-p> :Unite buffer file_rec/git<cr>i
 nmap <Space>s :w<cr> :SyntasticCheck<cr>
 nmap <leader>f :Fixmyjs<cr> :w<cr> :SyntasticCheck<cr>
 nmap <leader>s :w<cr>

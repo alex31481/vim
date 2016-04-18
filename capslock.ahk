@@ -15,8 +15,13 @@ Capslock::Ctrl
 
 #IfWinActive
 
-
-
+#IfWinActive ahk_exe nvim-qt.exe
++Capslock::Capslock
+Capslock::Ctrl
+;Escape
+;SetCapsLockState off
+;send {Escape}
+#IfWinActive
 
 
 #IfWinActive ahk_exe gvim.exe
