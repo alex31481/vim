@@ -197,7 +197,9 @@ else
   if(has("win32") || has("win16"))
     colorscheme industry
   else
-    colorscheme mustang
+    colorscheme OceanicNext
+    let g:airline_theme='oceanicnext'
+  "  colorscheme mustang
   " else
   "   colorscheme lucius
   "   LuciusBlack
@@ -269,6 +271,10 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%{fugitive#statusline()}
 set statusline+=%*
 
+
+"  move text and rehighlight -- vim tip_id=224 
+vnoremap > ><CR>gv 
+vnoremap < <<CR>gv 
 
 
 "copy and paste toggle
