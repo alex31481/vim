@@ -270,6 +270,10 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=%*
 
 
+"  move text and rehighlight -- vim tip_id=224 
+vnoremap > ><CR>gv 
+vnoremap < <<CR>gv 
+
 
 "copy and paste toggle
 nnoremap <F2> :set invpaste paste?<CR>
