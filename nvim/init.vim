@@ -6,16 +6,25 @@ command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:G
 Guifont DejaVu Sans Mono for Powerline:h13
 " Guifont Ubuntu Mono derivative Powerline Regular:h12
 
+let bundlePath = 'C:/nvim/nvim/plugged'
+" add if with mac bundle path
 
-call plug#begin('C:/nvim/nvim/plugged')
+
+
+call plug#begin(bundlePath)
 Plug 'mhartington/oceanic-next'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
+Plug 'easymotion/vim-easymotion'
+"Tim Pope
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
+"Shuogo
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'bling/vim-bufferline'
 call plug#end()
 
  " Theme
@@ -39,7 +48,7 @@ set laststatus=2
 
 
 "Height of the command bar
-set cmdheight=2
+set cmdheight=1
 
 " Ignore case when searching
 set ignorecase
@@ -114,13 +123,15 @@ nmap <Leader>n :NERDTree <cr>
 
 nnoremap <F2> :set invpaste paste?<CR>
 
+
 "Status line
-set statusline=%<%f\    " Filename
+" set statusline=%<%f\    " Filename
 "set statusline+=%w%h%m%r " Options
-set statusline+=%#warningmsg#
-set statusline+=%{fugitive#statusline()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{fugitive#statusline()}
+" set statusline+=%*
 let g:airline_theme='oceanicnext'
+let g:airline#extensions#tabline#enabled = 1
 
 "easymotion search
 map  / <Plug>(easymotion-sn)
@@ -137,3 +148,6 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 nmap <space>e <Plug>(easymotion-s2)
+
+"Unite configurations 
+nmap <C-p> :Unite buffer file_rec/git<cr>i
