@@ -6,12 +6,12 @@ command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:G
 Guifont DejaVu Sans Mono for Powerline:h13
 " Guifont Ubuntu Mono derivative Powerline Regular:h12
 
-" add if with mac bundle path
+"add if with mac bundle path
 let bundlePath = 'C:/nvim/nvim/plugged'
 set rtp+=c:\nvim\nvim\bundle\Vundle.vim 
 
 
-" setting to my preferred vim bundle location this location can be custom as you 
+"setting to my preferred vim bundle location this location can be custom as you 
 call vundle#begin(bundlePath)
 Plugin 'mhartington/oceanic-next'
 Plugin 'scrooloose/nerdtree'
@@ -38,11 +38,11 @@ call vundle#end()
 " Plug 'vim-airline/vim-airline'
 " Plug 'Yggdroot/indentLine'
 " Plug 'easymotion/vim-easymotion'
-" "Tim Pope
+"Tim Pope
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-commentary'
-" "Shuogo
+"Shuogo
 " Plug 'Shougo/unite.vim'
 " Plug 'Shougo/vimproc.vim'
 " Plug 'bling/vim-bufferline'
