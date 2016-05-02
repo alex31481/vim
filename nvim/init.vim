@@ -1,52 +1,45 @@
 " Neovim-qt Guifont command
-command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
-" Set the font to DejaVu Sans Mono:h13
-" Guifont DejaVu Sans Mono:h13
-" Guifont Inconsolata:h12
-Guifont DejaVu Sans Mono for Powerline:h13
+  command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
+if has('win32') 
+  " Set the font to DejaVu Sans Mono:h13
+  " Guifont DejaVu Sans Mono:h13
+  " Guifont Inconsolata:h12
+  Guifont DejaVu Sans Mono for Powerline:h13
+else
+  let bundlePath='~/.config/nvim/plugged'
+endif
 " Guifont Ubuntu Mono derivative Powerline Regular:h12
 
 "add if with mac bundle path
-let bundlePath = 'C:/nvim/nvim/plugged'
-set rtp+=c:\nvim\nvim\bundle\Vundle.vim 
+"
 
-
-"setting to my preferred vim bundle location this location can be custom as you 
-call vundle#begin(bundlePath)
-Plugin 'mhartington/oceanic-next'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'Yggdroot/indentLine'
-Plugin 'easymotion/vim-easymotion'
-"Tim Pope
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-"Shuogo
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'bling/vim-bufferline'
-call vundle#end()  
-
-""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""
 " VimPlug not working for windows for some reason
 " Cannot install multiple plug in
-""""""""""""""""""""""""""""
-" call plug#begin(bundlePath)
-" Plug 'mhartington/oceanic-next'
-" Plug 'scrooloose/nerdtree'
-" Plug 'vim-airline/vim-airline'
-" Plug 'Yggdroot/indentLine'
-" Plug 'easymotion/vim-easymotion'
+"""""""""""""""""""""""""""
+call plug#begin(bundlePath)
+Plug 'mhartington/oceanic-next'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
+Plug 'easymotion/vim-easymotion'
+Plug 'bling/vim-bufferline'
 "Tim Pope
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 "Shuogo
-" Plug 'Shougo/unite.vim'
-" Plug 'Shougo/vimproc.vim'
-" Plug 'bling/vim-bufferline'
-" call plug#end()
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+"javascript
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+call plug#end()
 
 " Theme Oceanic Next Theme
 syntax enable
@@ -58,7 +51,9 @@ let g:mapleader = ','
 
 
 
+""""""""""""""""""""""""""""""""""""""""""
 "Status line
+""""""""""""""""""""""""""""""""""""""""""
 " set statusline=%<%f\    " Filename
 "set statusline+=%w%h%m%r " Options
 " set statusline+=%#warningmsg#
@@ -66,6 +61,32 @@ let g:mapleader = ','
 " set statusline+=%*
 let g:airline_theme='oceanicnext'
 let g:airline#extensions#tabline#enabled = 1
+
+""""""""""""""""""""""""""""""""""""""""""
+"Auto Complete
+""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+" tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
+
 
 "easymotion search
 map  / <Plug>(easymotion-sn)
