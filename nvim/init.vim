@@ -1,3 +1,8 @@
+if &compatible
+  set nocompatible
+endif
+"
+"
 " Neovim-qt Guifont command
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
 " Set the font to DejaVu Sans Mono:h13
@@ -5,48 +10,66 @@ command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:G
 " Guifont Inconsolata:h12
 Guifont DejaVu Sans Mono for Powerline:h13
 " Guifont Ubuntu Mono derivative Powerline Regular:h12
+"
+filetype off                  " required
 
 "add if with mac bundle path
 let bundlePath = 'C:/nvim/nvim/plugged'
-set rtp+=c:\nvim\nvim\bundle\Vundle.vim 
 
+" set rtp+=c:\nvim\nvim\bundle\Vundle.vim 
+" "setting to my preferred vim bundle location this location can be custom as you 
+" call vundle#begin(bundlePath)
+" Plugin 'mhartington/oceanic-next'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'Yggdroot/indentLine'
+" Plugin 'easymotion/vim-easymotion'
+" "Tim Pope
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-commentary'
+" "Shuogo
+" Plugin 'Shougo/unite.vim'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'bling/vim-bufferline'
+" " Plugin 'Shougo/deoplete.vim'
+" Plugin 'ternjs/tern_for_vim'
+" "Javascript
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'mxw/vim-jsx'
+" call vundle#end()  
 
-"setting to my preferred vim bundle location this location can be custom as you 
-call vundle#begin(bundlePath)
-Plugin 'mhartington/oceanic-next'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'Yggdroot/indentLine'
-Plugin 'easymotion/vim-easymotion'
-"Tim Pope
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-"Shuogo
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'bling/vim-bufferline'
-call vundle#end()  
 
 """"""""""""""""""""""""""""
 " VimPlug not working for windows for some reason
 " Cannot install multiple plug in
 """"""""""""""""""""""""""""
-" call plug#begin(bundlePath)
-" Plug 'mhartington/oceanic-next'
-" Plug 'scrooloose/nerdtree'
-" Plug 'vim-airline/vim-airline'
-" Plug 'Yggdroot/indentLine'
-" Plug 'easymotion/vim-easymotion'
+call plug#begin(bundlePath)
+Plug 'mhartington/oceanic-next'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
+Plug 'easymotion/vim-easymotion'
 "Tim Pope
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 "Shuogo
-" Plug 'Shougo/unite.vim'
-" Plug 'Shougo/vimproc.vim'
-" Plug 'bling/vim-bufferline'
-" call plug#end()
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'bling/vim-bufferline'
+"Plug 'Shougo/deoplete.vim'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+"Javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+call plug#end()
+
+filetype plugin indent on    " required
 
 " Theme Oceanic Next Theme
 syntax enable
@@ -85,6 +108,41 @@ nmap <space>e <Plug>(easymotion-s2)
 
 "Unite configurations 
 nmap <C-p> :Unite buffer file_rec/git<cr>i
+
+
+
+"Auto Complete
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+" tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+" Use smartcase.
+let g:deoplete#enable_smart_case = 1
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#mappings#close_popup() . "\<CR>"
+endfunction
+
 
 " Basic settings
 "Line numbers number

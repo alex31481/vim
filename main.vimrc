@@ -46,6 +46,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'ruanyl/vim-fixmyjs'
 Plugin 'mhartington/oceanic-next'
 Plugin 'Yggdroot/indentLine'
+Plugin 'bling/vim-bufferline'
 "Plugin 'ervandew/SuperTab'
 "Plugin 'mxw/vim-jsx'
 
@@ -80,7 +81,7 @@ set laststatus=2
 
 
 "Height of the command bar
-set cmdheight=2
+" set cmdheight=2
 
 " Ignore case when searching
 set ignorecase
@@ -263,14 +264,19 @@ nmap <Leader>rw "_diwP
 nmap <Leader>p "0p
 nmap <Leader>P "0P
 
+let loaded_matchparen = 1
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
 "Status line
-set statusline=%<%f\    " Filename
+" set statusline=%<%f\    " Filename
 "set statusline+=%w%h%m%r " Options
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%{fugitive#statusline()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{fugitive#statusline()}
+" set statusline+=%*
 
+let g:airline_theme='oceanicnext'
+let g:airline#extensions#tabline#enabled = 1
 
 "  move text and rehighlight -- vim tip_id=224 
 vnoremap > ><CR>gv 
