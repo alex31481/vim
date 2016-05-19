@@ -270,3 +270,17 @@ nmap <Leader>P "0P
 nmap <Leader>n :NERDTree <cr>
 
 nnoremap <F2> :set invpaste paste?<CR>
+
+""""""""""""""""""""""""
+" Terminal settings
+""""""""""""""""""""""
+autocmd TermOpen * set bufhidden=hide
+tnoremap <Esc> <C-\><C-n>
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
