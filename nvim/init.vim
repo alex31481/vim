@@ -275,6 +275,8 @@ nnoremap <F2> :set invpaste paste?<CR>
 " Terminal settings
 """"""""""""""""""""""
 autocmd TermOpen * set bufhidden=hide
+autocmd TermOpen * set textwidth=0
+autocmd TermOpen * set wrapmargin=0
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
@@ -284,3 +286,10 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+
+
+"""""""""""""""""""""""""
+" wepack needs this configurate in order to watch
+"""""""""""""""""""""""""""""""
+set backupcopy=yes
+
