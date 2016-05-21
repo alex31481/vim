@@ -76,6 +76,10 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+"fixes javascript
+Plug 'ruanyl/vim-fixmyjs'
+"General linting
+Plug 'neomake/neomake'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -179,6 +183,13 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
   return deoplete#mappings#close_popup() . "\<CR>"
 endfunction
+
+" Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+" autocmd BufWritePost,BufEnter * Neomake
+
+" Fix my js
+autocmd FileType javascript noremap <Leader>f :w<CR> :Fixmyjs<CR> :Neomake<CR>
 
 
 " Basic settings
