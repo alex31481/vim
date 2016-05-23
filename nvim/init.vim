@@ -80,8 +80,11 @@ Plug 'mxw/vim-jsx'
 Plug 'ruanyl/vim-fixmyjs'
 "General linting
 Plug 'neomake/neomake'
+"Silver searcher
+Plug 'rking/ag.vim'
 call plug#end()
-
+" Auto format
+Plug 'Chiel92/vim-autoformat'
 filetype plugin indent on    " required
 
 " Theme Oceanic Next Theme
@@ -186,10 +189,13 @@ endfunction
 
 " Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
-" autocmd BufWritePost,BufEnter * Neomake
+autocmd BufWritePost,BufEnter *.js Neomake
 
 " Fix my js
-autocmd FileType javascript noremap <Leader>f :w<CR> :Fixmyjs<CR> :Neomake<CR>
+autocmd FileType javascript noremap <Leader>f :w<CR> :Fixmyjs<CR>
+
+" Silver Searcher
+nmap <leader>A :Ag <C-R><C-W>
 
 
 " Basic settings
@@ -303,4 +309,42 @@ nnoremap <A-l> <C-w>l
 " wepack needs this configurate in order to watch
 """""""""""""""""""""""""""""""
 set backupcopy=yes
+
+"  move text and rehighlight -- vim tip_id=224 
+vnoremap > ><CR>gv 
+vnoremap < <<CR>gv 
+
+"copy and paste toggle
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+set autoread
+set autowriteall
+
+"sets how many lines of history VIM has to remember
+set history=1000
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+" For regular expressions turn magic on
+set magic
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+" set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=2
+set tabstop=2
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+set backspace=2
+
 
