@@ -76,8 +76,6 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-"fixes javascript
-Plug 'ruanyl/vim-fixmyjs'
 "General linting
 Plug 'neomake/neomake'
 "Silver searcher
@@ -222,7 +220,7 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd BufWritePost,BufEnter *.js Neomake
 
 " Fix my js
-autocmd FileType javascript noremap <Leader>f :w<CR> :Fixmyjs<CR>
+autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
 
 " Silver Searcher
 nmap <leader>A :Ag <C-R><C-W>
