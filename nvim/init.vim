@@ -105,6 +105,22 @@ let g:mapleader = ','
 " set statusline+=%*
 let g:airline_theme='oceanicnext'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_inactive_collapse=1
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ }
+
+let g:airline_section_c = '%t'
 
 " air-line
 let g:airline_powerline_fonts = 1
