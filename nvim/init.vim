@@ -85,6 +85,7 @@ Plug 'rking/ag.vim'
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
 call plug#end()
 filetype plugin indent on    " required
 
@@ -192,6 +193,17 @@ let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+""""""""""""""""""""""""""""""""""""""""""
+"emmet
+""""""""""""""""""""""""""""""""""""""""""
+let g:user_emmet_install_global = 1
+"autocmd FileType html,css EmmetInstall
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 
 "easymotion search
