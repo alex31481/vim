@@ -1,0 +1,26 @@
+snippet react
+import React from 'react';
+endsnippet
+
+snippet mstp 
+const mapStateToProps = state => ({
+	$0
+});
+endsnippet
+
+snippet mdtp 
+const mapDispatchToProps = dispatch => ({
+	$0
+});
+endsnippet
+
+snippet red
+const $0 = (state = $1 , action ) => {
+	switch(action.type) {
+		case $2:
+			$3
+	}
+	return state;
+}
+endsnippet
+
