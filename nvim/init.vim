@@ -80,9 +80,12 @@ Plug 'mxw/vim-jsx'
 Plug 'neomake/neomake'
 "Silver searcher
 Plug 'rking/ag.vim'
-call plug#end()
 " Auto format
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+call plug#end()
 filetype plugin indent on    " required
 
 " Theme Oceanic Next Theme
@@ -152,6 +155,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+
 """"""""""""""""""""""""""""""""""""""""""
 "Auto Complete
 """"""""""""""""""""""""""""""""""""""""""
@@ -176,6 +180,18 @@ if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_signature_in_pum = 1
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 endif
+
+""""""""""""""""""""""""""""""""""""""""""
+"UltiSnip 
+""""""""""""""""""""""""""""""""""""""""""
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 
 "easymotion search
