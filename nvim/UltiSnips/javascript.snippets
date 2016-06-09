@@ -24,3 +24,11 @@ const $0 = (state = $1 , action ) => {
 }
 endsnippet
 
+
+
+snippet "sel(ect)?( (\S+))?" "state tree selector" br
+export const get${1:`!p
+snip.rv = match.group(3) if match.group(2) is not None else "mountPoint"`} = state => state.$1;$0
+endsnippet
+
+
