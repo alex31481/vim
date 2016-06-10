@@ -17,42 +17,7 @@ endif
 "
 filetype off                  " required
 
-"add if with mac bundle path
 
-" set rtp+=c:\nvim\nvim\bundle\Vundle.vim 
-" "setting to my preferred vim bundle location this location can be custom as you 
-" call vundle#begin(bundlePath)
-" Plugin 'mhartington/oceanic-next'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'Yggdroot/indentLine'
-" Plugin 'easymotion/vim-easymotion'
-" "Tim Pope
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-surround'
-" Plugin 'tpope/vim-commentary'
-" "Shuogo
-" Plugin 'Shougo/unite.vim'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'bling/vim-bufferline'
-" " Plugin 'Shougo/deoplete.vim'
-" Plugin 'ternjs/tern_for_vim'
-" "Javascript
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'mxw/vim-jsx'
-" call vundle#end()  
-
-
-""""""""""""""""""""""""""""
-" VimPlug not working for windows for some reason
-" Cannot install multiple plug in
-""""""""""""""""""""""""""""
-"
-
-"""""""""""""""""""""""""""
-" VimPlug not working for windows for some reason
-" Cannot install multiple plug in
-"""""""""""""""""""""""""""
 call plug#begin(bundlePath)
 Plug 'mhartington/oceanic-next'
 Plug 'scrooloose/nerdtree'
@@ -190,6 +155,7 @@ endif
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsListSnippets = "<c-l>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -222,8 +188,63 @@ let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 nmap <space>e <Plug>(easymotion-s2)
 
-"Unite configurations 
-nmap <C-p> :Unite buffer file_rec/git<cr>i
+""""""""""""""""""""""""""""""""""""""""""
+"Unite configuration
+""""""""""""""""""""""""""""""""""""""""""
+nmap <C-p> :Unite buffer file_rec/git<CR>
+	" Start insert.
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 1
+\ })
+
+	" Like ctrlp.vim settings.
+	"call unite#custom#profile('default', 'context', {
+	"\   'start_insert': 1,
+	"\   'winheight': 10,
+	"\   'direction': 'botright',
+	"\ })
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  " Overwrite settings.
+
+  "imap <buffer> jk      <Plug>(unite_insert_leave)
+  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+
+  imap <buffer><expr> j unite#smart_map('j', '')
+  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  imap <buffer> '     <Plug>(unite_quick_match_default_action)
+  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+  imap <buffer><expr> x
+          \ unite#smart_map('x', "\<Plug>(unite_quick_match_jump)")
+  nmap <buffer> x     <Plug>(unite_quick_match_jump)
+  nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+  nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+  nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+  imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+  nnoremap <silent><buffer><expr> l
+          \ unite#smart_map('l', unite#do_action('default'))
+
+  let unite = unite#get_current_unite()
+  if unite.profile_name ==# 'search'
+    nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+  else
+    nnoremap <silent><buffer><expr> r     unite#do_action('rename')
+  endif
+
+  nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+  nnoremap <buffer><expr> S      unite#mappings#set_current_sorters(
+          \ empty(unite#mappings#get_current_sorters()) ?
+          \ ['sorter_reverse'] : [])
+
+  " Runs "split" action by <C-s>.
+  imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+  nmap <silent><buffer><expr> <C-s>     unite#do_action('split')
+  imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+  nmap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+endfunction"}}}
 
 
 
@@ -418,5 +439,3 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 set backspace=2
-
-
