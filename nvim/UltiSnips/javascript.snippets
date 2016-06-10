@@ -24,11 +24,61 @@ const $0 = (state = $1 , action ) => {
 }
 endsnippet
 
-
-
 snippet "sel(ect)?( (\S+))?" "state tree selector" br
 export const get${1:`!p
 snip.rv = match.group(3) if match.group(2) is not None else "mountPoint"`} = state => state.$1;$0
 endsnippet
 
+snippet rc "React Component" b
+class $0 extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
+	render() {
+		$1
+	}
+}
+endsnippet
+
+snippet cdm "React ComponentDidMount" b
+componentDidMount() {
+	$0
+}
+endsnippet
+
+snippet cwm "React componentWillMount" b
+componentWillMount() {
+	$0
+}
+endsnippet
+
+snippet cwrp "React componentWillReceiveProps" b
+componentWillReceiveProps(nextProps) {
+	$0
+}
+endsnippet
+
+snippet scu "React shouldComponentUpdate" b
+shouldComponentUpdate(nextProps,nextState) {
+	$0
+}
+endsnippet
+
+snippet cwu "React componentWillUpdate" b
+componentWillUpdate(nextProps, nextState) {
+	$0
+}
+endsnippet
+
+snippet cdu "React componentDidUpdate" b
+componentDidUpdate(prevProps prevState) {
+	$0
+}
+endsnippet
+
+snippet cwum "React componentWillUnmount" b
+componentWillUnmount(){
+	$0
+}
+endsnippet
