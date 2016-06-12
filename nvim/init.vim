@@ -153,8 +153,8 @@ endif
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsJumpForwardTrigger="<c-i>"
+let g:UltiSnipsJumpBackwardTrigger="<c-,>"
 let g:UltiSnipsListSnippets = "<c-l>"
 
 " If you want :UltiSnipsEdit to split your window.
@@ -211,6 +211,8 @@ function! s:unite_my_settings()"{{{
   "imap <buffer> jk      <Plug>(unite_insert_leave)
   "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
 
+  nmap <buffer><C-p> :UniteClose<CR> 
+  imap <buffer><C-p> :UniteClose<CR> 
   imap <buffer><expr> j unite#smart_map('j', '')
   imap <buffer> <TAB>   <Plug>(unite_select_next_line)
   imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
@@ -242,8 +244,10 @@ function! s:unite_my_settings()"{{{
   " Runs "split" action by <C-s>.
   imap <silent><buffer><expr> <C-s>     unite#do_action('split')
   nmap <silent><buffer><expr> <C-s>     unite#do_action('split')
+  nmap <silent><buffer><expr> S     unite#do_action('split')
   imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
   nmap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+  nmap <silent><buffer><expr> V     unite#do_action('vsplit')
 endfunction"}}}
 
 
@@ -377,7 +381,7 @@ nmap <Leader>rw "_diwP
 "paste register 0
 nmap <Leader>p "0p
 nmap <Leader>P "0P
-nmap <Leader>n :NERDTree <cr>
+nmap <Leader>n :NERDTreeToggle <cr>
 
 nnoremap <F2> :set invpaste paste?<CR>
 

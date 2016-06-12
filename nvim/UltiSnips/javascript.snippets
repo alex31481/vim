@@ -1,32 +1,66 @@
-snippet react
-import React from 'react';
+#################
+### ES6 ######
+#################
+
+snippet 6f "es6 function" b
+const $1 = ($2) => {
+	$3
+};
 endsnippet
 
+snippet ws "wrapped in es6 string" b
+\`$1${VISUAL}\`
+endsnippet
+
+snippet wsv "wrapped in es6 string value" b
+\$\{$1${VISUAL}\}
+endsnippet
+
+#####################
+### Redux/Flux ######
+####################
 snippet mstp 
 const mapStateToProps = state => ({
-	$0
+	$1
 });
 endsnippet
 
 snippet mdtp 
 const mapDispatchToProps = dispatch => ({
-	$0
+	$1
 });
 endsnippet
 
-snippet red
-const $0 = (state = $1 , action ) => {
-	switch(action.type) {
-		case $2:
-			$3
-	}
-	return state;
-}
+snippet psel "Property Selector" b
+$1:get${1/\w+\s*/\u$0/g}(state)$2
 endsnippet
 
-snippet "sel(ect)?( (\S+))?" "state tree selector" br
-export const get${1:`!p
-snip.rv = match.group(3) if match.group(2) is not None else "mountPoint"`} = state => state.$1;$0
+snippet red
+const $1 = (state = $2 , action ) => {
+	switch(action.type) {
+		case $3:
+			${4:return action.payload};
+	}
+	return state;
+};
+endsnippet
+
+snippet "sel(ect)?" "state tree selector" br
+export const get${1:MountPoint} = state => state.${1/\w+\s*/\l$0/g};
+endsnippet
+
+
+snippet ac "Rdux/Flux action constant" b
+export const $1 = '$1';
+endsnippet
+
+
+#########################
+### React ###############
+#########################
+
+snippet react
+import React from 'react';
 endsnippet
 
 snippet rc "React Component" b
@@ -41,44 +75,61 @@ class $0 extends React.Component {
 }
 endsnippet
 
+snippet rfc "React Pure Functional Component" b
+const $1 = ($2) => (
+	$3${VISUAL}
+);
+endsnippet
+
+# React Life Cycle
 snippet cdm "React ComponentDidMount" b
 componentDidMount() {
-	$0
+	$1
 }
 endsnippet
 
 snippet cwm "React componentWillMount" b
 componentWillMount() {
-	$0
+	$1
 }
 endsnippet
 
 snippet cwrp "React componentWillReceiveProps" b
 componentWillReceiveProps(nextProps) {
-	$0
+	$1
 }
 endsnippet
 
 snippet scu "React shouldComponentUpdate" b
 shouldComponentUpdate(nextProps,nextState) {
-	$0
+	$1
 }
 endsnippet
 
 snippet cwu "React componentWillUpdate" b
 componentWillUpdate(nextProps, nextState) {
-	$0
+	$1
 }
 endsnippet
 
 snippet cdu "React componentDidUpdate" b
 componentDidUpdate(prevProps prevState) {
-	$0
+	$1
 }
 endsnippet
 
 snippet cwum "React componentWillUnmount" b
 componentWillUnmount(){
-	$0
+	$1
 }
 endsnippet
+
+#########################
+### JSX ###############
+#########################
+snippet rjsx "Wrapp in return for jsx"
+return (
+	$1${VISUAL}
+);
+endsnippet
+
