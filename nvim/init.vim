@@ -43,6 +43,8 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'othree/yajs.vim'
 Plug 'othree/Javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
+"Css
+Plug 'hail2u/vim-css-syntax'
 "General linting
 Plug 'neomake/neomake'
 "Silver searcher
@@ -174,7 +176,12 @@ let g:user_emmet_settings = {
 \}
 "Javascript syntax
 let g:used_javascript_libs = 'ramda,react,flux,chai'
+"css
+augroup VimCSS3Syntax
+  autocmd!
 
+  autocmd FileType css setlocal iskeyword+=-
+augroup END
 
 "easymotion search
 map  / <Plug>(easymotion-sn)
