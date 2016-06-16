@@ -39,7 +39,9 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "Javascript
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'othree/Javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
 "General linting
 Plug 'neomake/neomake'
@@ -170,6 +172,8 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+"Javascript syntax
+let g:used_javascript_libs = 'ramda,react,flux,chai'
 
 
 "easymotion search
