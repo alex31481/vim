@@ -43,6 +43,9 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'othree/yajs.vim'
 Plug 'othree/Javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
+"Typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/deoplete-typescript'
 "Css
 Plug 'hail2u/vim-css-syntax'
 "General linting
@@ -55,6 +58,8 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
+" Scala
+Plug 'derekwyatt/vim-scala'
 call plug#end()
 filetype plugin indent on    " required
 
@@ -392,7 +397,8 @@ nmap <Leader>rw "_diwP
 "paste register 0
 nmap <Leader>p "0p
 nmap <Leader>P "0P
-nmap <Leader>n :NERDTreeToggle <cr>
+nmap <Leader>n :NERDTreeToggl e <cr>
+cmap W w !sudo tee > /dev/null %
 
 nnoremap <F2> :set invpaste paste?<CR>
 
