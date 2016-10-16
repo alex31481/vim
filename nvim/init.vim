@@ -43,6 +43,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'othree/yajs.vim'
 Plug 'othree/Javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
+Plug 'benjie/neomake-local-eslint.vim'
 "Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/deoplete-typescript'
