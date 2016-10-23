@@ -44,6 +44,7 @@ Plug 'othree/yajs.vim'
 Plug 'othree/Javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
 Plug 'benjie/neomake-local-eslint.vim'
+Plug 'gavocanov/vim-js-indent'
 "Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/deoplete-typescript'
@@ -61,6 +62,9 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 " Scala
 Plug 'derekwyatt/vim-scala'
+Plug 'matze/vim-move'
+Plug 'ElmCast/elm-vim', { 'for' : 'elm' }
+Plug 'avh4/elm-format', { 'for' : 'elm' }
 call plug#end()
 filetype plugin indent on    " required
 
@@ -204,6 +208,9 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 nmap <space>e <Plug>(easymotion-s2)
+
+"vim move bindings
+let g:move_key_modifier = 'C'
 
 """"""""""""""""""""""""""""""""""""""""""
 "Unite configuration
