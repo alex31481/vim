@@ -48,3 +48,4 @@ nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
 nmap <Leader>, :action AceJumpAction <CR>
 nmap <Space>p :action IntroduceParameter<CR>
+nmap <Space>k :action FileStructurePopup<CR>
