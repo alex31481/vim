@@ -33,7 +33,7 @@ nmap <Leader>rr :action Rerun<CR>
 nmap <Leader>b :action JumpToLastChange<CR>
 nmap <Leader>rc :action CompileDirty<CR>
 "nmap <Leader>rf :action Compile<CR>
-nmap <Space>c :action Compile<CR>
+nmap <Space>c :action CompileProject<CR>
 nmap <Leader>j :action InsertLiveTemplate<CR>
 nmap <Leader>k :action CheckinProject<CR>
 nmap <Leader>o :action OverrideMethods<CR>
