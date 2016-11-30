@@ -13,12 +13,13 @@ if has('win32')
 else
   let bundlePath='~/.config/nvim/plugged'
 endif
-" Guifont Ubuntu Mono derivative Powerline Regular:h12
+"Guifont Ubuntu Mono derivative Powerline Regular:h12
 "
 filetype off                  " required
-
+set encoding=utf8
 
 call plug#begin(bundlePath)
+Plug 'ryanoasis/vim-devicons'
 Plug 'mhartington/oceanic-next'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -71,8 +72,13 @@ filetype plugin indent on    " required
 " Theme Oceanic Next Theme
 syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+if(has("termguicolors"))
+  set termguicolors
+endif
+
 colorscheme OceanicNext
-set background=dark
+" set background=dark
 let mapleader = ',' 
 let g:mapleader = ','
 
