@@ -313,8 +313,8 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd BufWritePost,BufEnter *.js Neomake
 
 " Fix my js
-autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
-
+"autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
+autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!yarn lint:fix"<CR>:edit<CR>:Neomake<CR>
 " Silver Searcher
 nmap <leader>A :Ag <C-R><C-W>
 
