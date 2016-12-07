@@ -5,7 +5,7 @@
 snippet 6f "es6 function" b
 const $1 = ($2) => {
 	$3
-};
+}
 endsnippet
 
 snippet ws "wrapped in es6 string" b
@@ -22,13 +22,13 @@ endsnippet
 snippet mstp 
 const mapStateToProps = state => ({
 	$1
-});
+})
 endsnippet
 
 snippet mdtp 
 const mapDispatchToProps = dispatch => ({
 	$1
-});
+})
 endsnippet
 
 snippet psel "Property Selector" b
@@ -39,19 +39,19 @@ snippet red
 const $1 = (state = $2 , action ) => {
 	switch(action.type) {
 		case $3:
-			${4:return action.payload};
+			${4:return action.payload}
 	}
-	return state;
-};
+	return state
+}
 endsnippet
 
 snippet "sel(ect)?" "state tree selector" br
-export const get${1:MountPoint} = state => state.${1/\w+\s*/\l$0/g};
+export const get${1:MountPoint} = state => state.${1/\w+\s*/\l$0/g}
 endsnippet
 
 
 snippet ac "Rdux/Flux action constant" b
-export const $1 = '$1';
+export const $1 = '$1'
 endsnippet
 
 
@@ -60,13 +60,13 @@ endsnippet
 #########################
 
 snippet react
-import React from 'react';
+import React from 'react'
 endsnippet
 
 snippet rc "React Component" b
 class $0 extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	render() {
@@ -78,7 +78,7 @@ endsnippet
 snippet rfc "React Pure Functional Component" b
 const $1 = ($2) => (
 	$3${VISUAL}
-);
+)
 endsnippet
 
 # React Life Cycle
@@ -130,6 +130,26 @@ endsnippet
 snippet rjsx "Wrapp in return for jsx"
 return (
 	$1${VISUAL}
-);
+)
+endsnippet
+
+#####################
+### TEST       ######
+#####################
+snippet shld "jest it test function"
+it('should $1', () => {
+})
+endsnippet
+
+snippet rashld "jest redux action test function"
+it('should dispatch $1', () => {
+  const store = mockStore({})
+  return store.dispatch($2)
+  .then(() => {
+			const actualActions= store.getActions()
+			//expect(actualActions[0].type).toBe(actions.STORE_UNIT_MAP)
+			$3
+  })
+})
 endsnippet
 

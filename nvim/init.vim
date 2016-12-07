@@ -41,11 +41,11 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "Javascript
 "Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
-Plug 'othree/Javascript-libraries-syntax.vim'
-Plug 'mxw/vim-jsx'
-Plug 'benjie/neomake-local-eslint.vim'
-Plug 'gavocanov/vim-js-indent'
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/Javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 "Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/deoplete-typescript'
