@@ -46,7 +46,7 @@ const $1 = (state = $2 , action ) => {
 endsnippet
 
 snippet "sel(ect)?" "state tree selector" br
-export const get${1:MountPoint} = state => state.${1/\w+\s*/\l$0/g}
+export const get${1:MountPoint} = state => R.compose(state.${1/\w+\s*/\l$0/g}, getState)
 endsnippet
 
 
