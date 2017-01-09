@@ -41,12 +41,13 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "Javascript
 "Plug 'pangloss/vim-javascript'
-"Plug 'fleischie/vim-styled-components'
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/Javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'fleischie/vim-styled-components'
+Plug 'mbbill/undotree'
 "Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/deoplete-typescript'
@@ -82,6 +83,14 @@ colorscheme OceanicNext
 " set background=dark
 let mapleader = ',' 
 let g:mapleader = ','
+
+""""""""""""""""""""""""""
+"UNDO 
+"""""""""""""""""""""""
+if has("persistent_undo")
+  set undodir=~/.vim-undo/
+  set undofile
+endif
 
 
 
@@ -409,7 +418,8 @@ nmap <Leader>P "0P
 nmap <Leader>n :NERDTreeToggl e <cr>
 cmap W w !sudo tee > /dev/null %
 
-nnoremap <F2> :set invpaste paste?<CR>
+nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <F2> :set invpaste paste?<cr>
 
 """"""""""""""""""""""""
 " Terminal settings
