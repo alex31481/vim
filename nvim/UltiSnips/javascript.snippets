@@ -46,7 +46,7 @@ const $1 = (state = $2 , action ) => {
 endsnippet
 
 snippet "sel(ect)?" "state tree selector" br
-export const get${1:MountPoint} = state => R.compose(state.${1/\w+\s*/\l$0/g}, getState)
+export const get${1:MountPoint} =  R.compose(state => state.${1/\w+\s*/\l$0/g}, getState)
 endsnippet
 
 
@@ -151,5 +151,27 @@ it('should dispatch $1', () => {
 			$3
   })
 })
+endsnippet
+#####################
+### Functional ######
+#####################
+snippet fromN "data.maybe"
+import { fromNullable, Just, Nothing } from 'data.maybe'
+endsnippet
+
+snippet conn "redux"
+import { connect } from 'react-redux'
+endsnippet
+
+snippet styled "sytled-componentsk"
+import styled from 'styled-components'
+endsnippet
+
+snippet ramda "ramda js import"
+import R from 'ramda'
+endsnippet
+
+snippet bind "bind react component funcion" b
+this.$1 = this.$1.bind(this)
 endsnippet
 

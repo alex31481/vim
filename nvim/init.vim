@@ -46,6 +46,7 @@ Plug 'othree/Javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascri
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'fleischie/vim-styled-components'
 Plug 'mbbill/undotree'
 "Typescript
@@ -218,6 +219,13 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 nmap <space>e <Plug>(easymotion-s2)
+
+" jsbeautify
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 "vim move bindings
 let g:move_key_modifier = 'C'
