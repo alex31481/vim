@@ -39,19 +39,23 @@ function! DoRemote(arg)
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+"Plug 'dai-shi/es-beautifier', { 'do': 'npm install --only=production' }
 "Javascript
 "Plug 'pangloss/vim-javascript'
+"
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/Javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'sbdchd/neoformat'
+
+"Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'fleischie/vim-styled-components'
 Plug 'mbbill/undotree'
 "Typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'mhartington/deoplete-typescript'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'mhartington/deoplete-typescript'
 "Css
 Plug 'hail2u/vim-css-syntax'
 "General linting
@@ -65,7 +69,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 " Scala
-Plug 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala', { 'for' : 'scala'}
 Plug 'matze/vim-move'
 Plug 'ElmCast/elm-vim', { 'for' : 'elm' }
 Plug 'avh4/elm-format', { 'for' : 'elm' }
@@ -221,11 +225,15 @@ let g:EasyMotion_use_smartsign_us = 1 " US layout
 nmap <space>e <Plug>(easymotion-s2)
 
 " jsbeautify
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+" autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsxBeautify()<cr>
+" autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+" autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+" autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+" autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+"
+
+autocmd FileType javascript nnoremap <buffer> <space>f :call EsBeautifier()<cr>
+autocmd FileType javascript vnoremap <buffer> <space>f :call RangeEsBeautifier()<cr>
 
 "vim move bindings
 let g:move_key_modifier = 'C'
@@ -330,9 +338,15 @@ endfunction
 let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd BufWritePost,BufEnter *.js Neomake
 
+
+" Neoformat
+autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote\ --no-semi\ --trailing-comma\ es5
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+
 " Fix my js
-"autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
-autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!yarn lint:fix"<CR>:edit<CR>:Neomake<CR>
+" autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
+autocmd FileType javascript noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :Neoformat<CR>:Neomake<CR>
 " Silver Searcher
 nmap <leader>A :Ag <C-R><C-W>
 
@@ -487,3 +501,30 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 set backspace=2
+
+
+"""""""""""""""""""""
+" transparent neovim
+"""""""""""""
+hi Normal guibg=none
+
+
+"-- pandoc Markdown+LaTeX -------------------------------------------
+
+function s:MDSettings()
+    inoremap <buffer> <Leader>n \note[item]{}<Esc>i
+    noremap <buffer> <Leader>b :! pandoc -t beamer % -o %<.pdf<CR><CR>
+    noremap <buffer> <Leader>l :! pandoc -t latex % -o %<.pdf<CR>
+    noremap <buffer> <Leader>v :! evince %<.pdf 2>&1 >/dev/null &<CR><CR>
+
+    " adjust syntax highlighting for LaTeX parts
+    "   inline formulas:
+    syntax region Statement oneline matchgroup=Delimiter start="\$" end="\$"
+    "   environments:
+    syntax region Statement matchgroup=Delimiter start="\\begin{.*}" end="\\end{.*}" contains=Statement
+    "   commands:
+    syntax region Statement matchgroup=Delimiter start="{" end="}" contains=Statement
+endfunction
+
+autocmd BufRead,BufNewFile *.md setfiletype markdown
+autocmd FileType markdown :call <SID>MDSettings()
