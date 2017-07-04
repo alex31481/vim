@@ -347,7 +347,7 @@ let g:neoformat_try_formatprg = 1
 
 " Fix my js
 " autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
-autocmd FileType javascript noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :Neoformat<CR>:Neomake<CR>
+autocmd FileType javascript noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
 " Silver Searcher
 nmap <leader>A :Ag <C-R><C-W>
 
