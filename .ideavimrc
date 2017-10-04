@@ -32,20 +32,12 @@ nmap <Leader>f :action ReformatCode<CR>
 nmap <Leader>rr :action Rerun<CR>
 nmap <Leader>b :action JumpToLastChange<CR>
 nmap <Leader>rc :action CompileDirty<CR>
-"nmap <Leader>rf :action Compile<CR>
-nmap <Space>c :action CompileProject<CR>
+nmap <Leader>rf :action Compile<CR>
 nmap <Leader>j :action InsertLiveTemplate<CR>
 nmap <Leader>k :action CheckinProject<CR>
-nmap <Leader>o :action OverrideMethods<CR>
-nmap <Leader>i :action ImplementMethods<CR>
-nmap gi :action GotoImplementation<CR>
-nmap gu :action GotoSuperMethod<CR>
-nmap gd :action GotoDeclaration<CR>
 nmap <Space>n :action NewClass<CR>
 nmap ] :action VimMotionScrollPageDown <CR>
 nmap [ :action VimMotionScrollPageUp <CR>
 nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
-nmap <Leader>, :action AceJumpAction <CR>
-nmap <Space>p :action IntroduceParameter<CR>
-nmap <Space>k :action FileStructurePopup<CR>
+nmap <Space>/ :action AceTargetAction<CR>
