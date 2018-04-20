@@ -71,9 +71,20 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for' : 'scala'}
-Plug 'matze/vim-move'
+" elm
 Plug 'ElmCast/elm-vim', { 'for' : 'elm' }
 Plug 'avh4/elm-format', { 'for' : 'elm' }
+" Docker
+Plug 'ekalinin/Dockerfile.vim'
+"move
+Plug 'matze/vim-move'
+"markdown
+" Plug 'tpope/vim-markdown' ,
+" Plug 'suan/vim-instant-markdown' , { 'for' : 'markdown' }
+Plug 'GEverding/vim-hocon'
+Plug 'stephpy/vim-yaml'
+
+Plug 'dag/vim-fish', { 'for': 'fish' }
 call plug#end()
 filetype plugin indent on    " required
 
@@ -134,23 +145,23 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.crypt = '🔒'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = '☰'
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = '∄'
+" let g:airline_symbols.whitespace = 'Ξ'
 
 """"""""""""""""""""""""""""""""""""""""""
 "Auto Complete
@@ -348,8 +359,11 @@ let g:neoformat_try_formatprg = 1
 " Fix my js
 " autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
 autocmd FileType javascript noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
+autocmd FileType javascript.jsx noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
 " Silver Searcher
 nmap <leader>A :Ag <C-R><C-W>
+
+" Silver Searcher
 
 
 " Basic settings
@@ -438,7 +452,7 @@ nmap <Leader>rw "_diwP
 "paste register 0
 nmap <Leader>p "0p
 nmap <Leader>P "0P
-nmap <Leader>n :NERDTreeToggl e <cr>
+nmap <Leader>n :NERDTreeFind<cr>
 cmap W w !sudo tee > /dev/null %
 
 nnoremap <F5> :UndotreeToggle<cr>
