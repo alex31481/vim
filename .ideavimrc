@@ -41,3 +41,5 @@ nmap [ :action VimMotionScrollPageUp <CR>
 nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
 nmap <Space>/ :action AceTargetAction<CR>
+
+set surround
