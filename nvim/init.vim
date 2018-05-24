@@ -45,6 +45,8 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/Javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -546,3 +548,7 @@ endfunction
 
 autocmd BufRead,BufNewFile *.md setfiletype markdown
 autocmd FileType markdown :call <SID>MDSettings()
+
+
+hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
