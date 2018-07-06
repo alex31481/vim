@@ -42,5 +42,6 @@ nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
 nmap <Space>/ :action AceTargetAction<CR>
 nmap <Leader><Leader>w :action AceAction<CR>
+nmap <Space>r :action RenameElement<CR>
 
 set surround
