@@ -35,6 +35,7 @@ nmap <Leader>rc :action CompileDirty<CR>
 nmap <Leader>rf :action Compile<CR>
 nmap <Leader>j :action InsertLiveTemplate<CR>
 nmap <Leader>k :action CheckinProject<CR>
+nmap <Leader>iv :action IntroduceVariable<CR>
 nmap <Space>n :action NewClass<CR>
 nmap ] :action VimMotionScrollPageDown <CR>
 nmap [ :action VimMotionScrollPageUp <CR>
@@ -42,6 +43,9 @@ nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
 nmap <Space>/ :action AceTargetAction<CR>
 nmap <Leader><Leader>w :action AceAction<CR>
+nmap <Leader><Leader>b :action AceAction<CR>
+nmap <Leader><Leader>ge :action AceAction<CR>
+nmap <Leader><Leader>e :action AceAction<CR>
 nmap <Space>r :action RenameElement<CR>
 
 set surround
