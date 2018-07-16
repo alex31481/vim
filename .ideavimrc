@@ -36,6 +36,7 @@ nmap <Leader>rf :action Compile<CR>
 nmap <Leader>j :action InsertLiveTemplate<CR>
 nmap <Leader>k :action CheckinProject<CR>
 nmap <Leader>iv :action IntroduceVariable<CR>
+nmap <Leader>ip :action IntroduceParameter<CR>
 nmap <Space>n :action NewClass<CR>
 nmap ] :action VimMotionScrollPageDown <CR>
 nmap [ :action VimMotionScrollPageUp <CR>
