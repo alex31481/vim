@@ -50,6 +50,7 @@ Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'benjie/local-npm-bin.vim'
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'sbdchd/neoformat'
 
@@ -87,6 +88,7 @@ Plug 'GEverding/vim-hocon'
 Plug 'stephpy/vim-yaml'
 
 Plug 'dag/vim-fish', { 'for': 'fish' }
+Plug 'ruanyl/vim-fixmyjs'
 call plug#end()
 filetype plugin indent on    " required
 
@@ -353,6 +355,9 @@ endfunction
 
 " Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+" let b:neomake_javascript_eslint_exe = GetNpmBin('eslint')
+" let g:flow#flowpath = GetNpmBin('flow')
+
 autocmd BufWritePost,BufEnter *.js Neomake
 
 
@@ -362,9 +367,10 @@ autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote
 let g:neoformat_try_formatprg = 1
 
 " Fix my js
-" autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
-autocmd FileType javascript noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
-autocmd FileType javascript.jsx noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
+"autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
+"autocmd FileType javascript noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
+"autocmd FileType javascript.jsx noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
+autocmd FileType javascript.jsx noremap <silent> <Leader>f :Fixmyjs<CR> :Neoformat<CR>
 " Silver Searcher
 nmap <leader>A :Ag <C-R><C-W>
 
