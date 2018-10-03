@@ -464,7 +464,7 @@ nmap <Leader>rw "_diwP
 nmap <Leader>p "0p
 nmap <Leader>P "0P
 nmap <Leader>n :NERDTreeFind<cr>
-cmap W w !sudo tee > /dev/null %
+"cmap W w !sudo tee > /dev/null %
 
 nnoremap <F5> :UndotreeToggle<cr>
 nnoremap <F2> :set invpaste paste?<cr>
