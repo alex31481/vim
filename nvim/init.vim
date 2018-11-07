@@ -26,6 +26,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'bling/vim-bufferline'
+Plug 'luochen1990/rainbow'
 "Tim Pope
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -49,7 +50,6 @@ Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'benjie/local-npm-bin.vim'
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'sbdchd/neoformat'
@@ -63,7 +63,8 @@ Plug 'mbbill/undotree'
 "Css
 Plug 'hail2u/vim-css-syntax'
 "General linting
-Plug 'neomake/neomake'
+"Plug 'neomake/neomake'
+"Plug 'benjie/neomake-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
 "Silver searcher
 Plug 'rking/ag.vim'
 " Auto format
@@ -88,7 +89,11 @@ Plug 'GEverding/vim-hocon'
 Plug 'stephpy/vim-yaml'
 
 Plug 'dag/vim-fish', { 'for': 'fish' }
-Plug 'ruanyl/vim-fixmyjs'
+"Plug 'ruanyl/vim-fixmyjs'
+
+Plug 'w0rp/ale'
+
+
 call plug#end()
 filetype plugin indent on    " required
 
@@ -358,7 +363,7 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 " let b:neomake_javascript_eslint_exe = GetNpmBin('eslint')
 " let g:flow#flowpath = GetNpmBin('flow')
 
-autocmd BufWritePost,BufEnter *.js Neomake
+"autocmd BufWritePost,BufEnter *.js Neomake
 
 
 " Neoformat
@@ -370,11 +375,18 @@ let g:neoformat_try_formatprg = 1
 "autocmd FileType javascript noremap <Leader>f :w<CR> :silent exec "!eslint ".expand("%.p")." --fix"<CR> :Neomake<CR>
 "autocmd FileType javascript noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
 "autocmd FileType javascript.jsx noremap <silent> <Leader>f :w<CR> :!yarn lint:fix-file %<CR> :edit<CR> :Neoformat<CR>:Neomake<CR>
-autocmd FileType javascript.jsx noremap <silent> <Leader>f :Fixmyjs<CR> :Neoformat<CR>
+"autocmd FileType javascript.jsx noremap <silent> <Leader>f :Fixmyjs<CR> :Neoformat<CR>
+autocmd FileType javascript.jsx noremap <silent> <Leader>f :ALEFix<CR>
 " Silver Searcher
 nmap <leader>A :Ag <C-R><C-W>
 
 " Silver Searcher
+"
+"
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = [ 'eslint','prettier' ]
+let g:ale_fix_on_save = 1
+"let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma es5 --no-semi'
 
 
 " Basic settings
@@ -449,7 +461,7 @@ set backspace=2
 imap jk <esc>
 imap kj <esc>
 nmap ; :
-nmap <leader>s :w<cr>
+"nmap <leader>s :w<cr>
 
 """""""""""""""
 "Faster editing
@@ -461,8 +473,8 @@ nmap <Leader>c viw~
 "replace word
 nmap <Leader>rw "_diwP
 "paste register 0
-nmap <Leader>p "0p
-nmap <Leader>P "0P
+"nmap <Leader>p "0p
+"nmap <Leader>P "0P
 nmap <Leader>n :NERDTreeFind<cr>
 "cmap W w !sudo tee > /dev/null %
 
@@ -558,3 +570,5 @@ autocmd FileType markdown :call <SID>MDSettings()
 
 hi Normal guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
+
+let g:rainbow_active = 1
