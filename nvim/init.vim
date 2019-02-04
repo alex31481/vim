@@ -34,6 +34,7 @@ Plug 'tpope/vim-commentary'
 "Shuogo
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/denite.nvim'
 "Plug 'Shougo/deoplete.vim'
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -53,6 +54,7 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'benjie/local-npm-bin.vim'
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'sbdchd/neoformat'
+Plug 'plytophogy/vim-virtualenv', {'for': ['python']}
 
 "Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'fleischie/vim-styled-components'
@@ -265,64 +267,64 @@ let g:move_key_modifier = 'C'
 """"""""""""""""""""""""""""""""""""""""""
 "Unite configuration
 """"""""""""""""""""""""""""""""""""""""""
-nmap <C-p> :Unite buffer file_rec/git<CR>
+"nmap <C-p> :Denite buffer file_rec/git<CR>
 	" Start insert.
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 1
-\ })
+"call unite#custom#profile('default', 'context', {
+"\   'start_insert': 1
+"\ })
 
-	" Like ctrlp.vim settings.
-	"call unite#custom#profile('default', 'context', {
-	"\   'start_insert': 1,
-	"\   'winheight': 10,
-	"\   'direction': 'botright',
-	"\ })
+"	" Like ctrlp.vim settings.
+"	"call unite#custom#profile('default', 'context', {
+"	"\   'start_insert': 1,
+"	"\   'winheight': 10,
+"	"\   'direction': 'botright',
+"	"\ })
 
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()"{{{
-  " Overwrite settings.
+"autocmd FileType unite call s:unite_my_settings()
+"function! s:unite_my_settings()"{{{
+"  " Overwrite settings.
 
-  "imap <buffer> jk      <Plug>(unite_insert_leave)
-  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+"  "imap <buffer> jk      <Plug>(unite_insert_leave)
+"  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
 
-  nmap <buffer><C-p> :UniteClose<CR> 
-  imap <buffer><C-p> :UniteClose<CR> 
-  imap <buffer><expr> j unite#smart_map('j', '')
-  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-  imap <buffer> '     <Plug>(unite_quick_match_default_action)
-  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
-  imap <buffer><expr> x
-          \ unite#smart_map('x', "\<Plug>(unite_quick_match_jump)")
-  nmap <buffer> x     <Plug>(unite_quick_match_jump)
-  nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-  imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-  nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
-  nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-  imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-  nnoremap <silent><buffer><expr> l
-          \ unite#smart_map('l', unite#do_action('default'))
+"  nmap <buffer><C-p> :UniteClose<CR> 
+"  imap <buffer><C-p> :UniteClose<CR> 
+"  imap <buffer><expr> j unite#smart_map('j', '')
+"  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+"  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+"  imap <buffer> '     <Plug>(unite_quick_match_default_action)
+"  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+"  imap <buffer><expr> x
+"          \ unite#smart_map('x', "\<Plug>(unite_quick_match_jump)")
+"  nmap <buffer> x     <Plug>(unite_quick_match_jump)
+"  nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+"  imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+"  nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+"  nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+"  imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+"  nnoremap <silent><buffer><expr> l
+"          \ unite#smart_map('l', unite#do_action('default'))
 
-  let unite = unite#get_current_unite()
-  if unite.profile_name ==# 'search'
-    nnoremap <silent><buffer><expr> r     unite#do_action('replace')
-  else
-    nnoremap <silent><buffer><expr> r     unite#do_action('rename')
-  endif
+"  let unite = unite#get_current_unite()
+"  if unite.profile_name ==# 'search'
+"    nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+"  else
+"    nnoremap <silent><buffer><expr> r     unite#do_action('rename')
+"  endif
 
-  nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
-  nnoremap <buffer><expr> S      unite#mappings#set_current_sorters(
-          \ empty(unite#mappings#get_current_sorters()) ?
-          \ ['sorter_reverse'] : [])
+"  nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+"  nnoremap <buffer><expr> S      unite#mappings#set_current_sorters(
+"          \ empty(unite#mappings#get_current_sorters()) ?
+"          \ ['sorter_reverse'] : [])
 
-  " Runs "split" action by <C-s>.
-  imap <silent><buffer><expr> <C-s>     unite#do_action('split')
-  nmap <silent><buffer><expr> <C-s>     unite#do_action('split')
-  nmap <silent><buffer><expr> S     unite#do_action('split')
-  imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
-  nmap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
-  nmap <silent><buffer><expr> V     unite#do_action('vsplit')
-endfunction"}}}
+"  " Runs "split" action by <C-s>.
+"  imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+"  nmap <silent><buffer><expr> <C-s>     unite#do_action('split')
+"  nmap <silent><buffer><expr> S     unite#do_action('split')
+"  imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+"  nmap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+"  nmap <silent><buffer><expr> V     unite#do_action('vsplit')
+"endfunction"}}}
 
 
 
@@ -572,3 +574,35 @@ hi Normal guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 let g:rainbow_active = 1
+
+
+"Denite
+call denite#custom#var('file/rec', 'command',
+	\ ['ag', '--follow', '--nocolor','-g', ''])
+" call denite#custom#var('file/rec', 'command',
+" 	\ ['ag', '--follow'])
+" call denite#custom#var('file/rec', 'command',
+"       \ ['rg', '--files', '--glob', '!.git'])
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-n>',
+	      \ '<denite:move_to_next_line>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-p>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
+call denite#custom#option('default', {
+      \ 'prompt': '❯'
+      \ })
+nnoremap <C-p> :<C-u>Denite buffer file/rec<CR>
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
