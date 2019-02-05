@@ -595,6 +595,18 @@ call denite#custom#map(
       \ '<denite:move_to_previous_line>',
       \ 'noremap'
       \)
+call denite#custom#map(
+	      \ 'insert',
+	      \ 'jk',
+	      \ '<denite:enter_mode:normal>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+	      \ 'insert',
+	      \ 'kj',
+	      \ '<denite:enter_mode:normal>',
+	      \ 'noremap'
+	      \)
 call denite#custom#option('default', {
       \ 'prompt': '❯'
       \ })
