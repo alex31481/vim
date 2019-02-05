@@ -35,6 +35,7 @@ Plug 'tpope/vim-commentary'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/denite.nvim'
+Plug 'Shougo/neomru.vim'
 "Plug 'Shougo/deoplete.vim'
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -583,6 +584,14 @@ call denite#custom#var('file/rec', 'command',
 " 	\ ['ag', '--follow'])
 " call denite#custom#var('file/rec', 'command',
 "       \ ['rg', '--files', '--glob', '!.git'])
+"
+"
+" call denite#custom#source('buffer', 'matchers', 
+"   \ ['matcher/fuzzy', 'matcher/ignore_current_buffer'])
+" Change matchers.
+" call denite#custom#var(
+" 	\ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/ignore_current_buffer'])
+
 call denite#custom#map(
 	      \ 'insert',
 	      \ '<C-n>',
@@ -607,6 +616,7 @@ call denite#custom#map(
 	      \ '<denite:enter_mode:normal>',
 	      \ 'noremap'
 	      \)
+
 call denite#custom#option('default', {
       \ 'prompt': '❯'
       \ })
