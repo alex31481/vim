@@ -616,6 +616,30 @@ call denite#custom#map(
 	      \ '<denite:enter_mode:normal>',
 	      \ 'noremap'
 	      \)
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-s>',
+	      \ '<denite:do_action:vsplit>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-i>',
+	      \ '<denite:do_action:split>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+	      \ 'normal',
+	      \ 's',
+	      \ '<denite:do_action:vsplit>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+	      \ 'normal',
+	      \ 'i',
+	      \ '<denite:do_action:split>',
+	      \ 'noremap'
+	      \)
 
 call denite#custom#option('default', {
       \ 'prompt': '❯'
