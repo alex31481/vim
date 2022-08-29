@@ -17,6 +17,8 @@ endif
 "
 filetype off                  " required
 set encoding=utf8
+" Ignore case when searching
+set ignorecase
 
 call plug#begin(bundlePath)
 Plug 'ryanoasis/vim-devicons'
@@ -99,6 +101,10 @@ Plug 'w0rp/ale'
 Plug 'overcache/NeoSolarized'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'raghur/fruzzy', {'do': { -> fruzzy#install()}}
+Plug 'justinmk/vim-sneak'
+
+let g:sneak#use_ic_scs = 1
 
 
 call plug#end()
@@ -389,6 +395,14 @@ let loaded_matchparen = 1
 set laststatus=2
 
 
+set incsearch
+set scrolloff=8
+set nohlsearch
+set hidden
+set noerrorbells
+set noswapfile
+set nobackup
+
 "Height of the command bar
 set cmdheight=1
 
@@ -598,11 +612,28 @@ let g:rainbow_active = 1
 	" call denite#custom#var('file/rec', 'command',
 	" \ ['scantree.py', '--path', ':directory'])
 
-	" Change matchers.
-	call denite#custom#source(
-	\ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
-	call denite#custom#source(
-	\ 'file/rec', 'matchers', ['matcher/cpsm'])
+
+
+  " optional - but recommended - see below
+  let g:fruzzy#usenative = 1
+
+  " When there's no input, fruzzy can sort entries based on how similar they are to the current buffer
+  " For ex: if you're on /path/to/somefile.h, then on opening denite, /path/to/somefile.cpp
+  " would appear on the top of the list.
+  " Useful if you're bouncing a lot between similar files.
+  " To turn off this behavior, set the variable below  to 0
+
+  let g:fruzzy#sortonempty = 1 " default value
+
+  " tell denite to use this matcher by default for all sources
+  call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
+
+
+	" " Change matchers.
+	" call denite#custom#source(
+	" \ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+	" call denite#custom#source(
+	" \ 'file/rec', 'matchers', ['matcher/cpsm'])
 
 	" Change sorters.
 	call denite#custom#source(

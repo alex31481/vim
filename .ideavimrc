@@ -1,10 +1,14 @@
+
+let mapleader = ',' 
+let g:mapleader = ','
+set easymotion
+set sneak
+nmap ; :
 let mapleader = ',' 
 let g:mapleader = ','
 
 set ignorecase
 
-set visualbell
-set noerrorbells
 set relativenumber
 set number
 "get out of edit mode
@@ -30,7 +34,7 @@ nmap <Leader>P "0P
 "intellij short cuts
 nmap <Leader>f :action ReformatCode<CR>
 nmap <Leader>rr :action Rerun<CR>
-nmap <Leader>b :action JumpToLastChange<CR>
+" nmap <Leader>b :action JumpToLastChange<CR>
 nmap <Leader>rc :action CompileDirty<CR>
 nmap <Leader>rf :action CompileFile<CR>
 nmap <Leader>j :action InsertLiveTemplate<CR>
@@ -42,7 +46,7 @@ nmap ] :action VimMotionScrollPageDown <CR>
 nmap [ :action VimMotionScrollPageUp <CR>
 nmap <Space>vs :source ~/.ideavimrc<CR>
 nmap <Space>b :action Git.Branches <CR>
-nmap <Space>b :action Git.Branches <CR>
+" nmap <Space>b :action Git.Branches <CR>
 " nmap <Space>/ :action AceTargetAction<CR>
 " nmap <Leader><Leader>w :action AceAction<CR>
 " nmap <Leader><Leader>b :action AceAction<CR>
@@ -51,8 +55,10 @@ nmap <Space>b :action Git.Branches <CR>
 " nmap <Leader><Leader>w :action emacsIDEAs.AceJumpWord<CR>
 " nmap <Leader><Leader>c :action emacsIDEAs.AceJump<CR>
 nmap <Space>r :action RenameElement<CR>
-nmap <leader><leader>s :action KJumpAction<cr>
-nmap <leader><leader>w :action KJumpAction.Word0<cr>
-nmap <leader><leader>l :action KJumpAction.Line<cr>
+" nmap <leader><leader>s :action KJumpAction<cr>
+" nmap <leader><leader>w :action KJumpAction.Word0<cr>
+" nmap <leader><leader>l :action KJumpAction.Line<cr>
 
 set surround
+nmap ; :
+set visualbell
