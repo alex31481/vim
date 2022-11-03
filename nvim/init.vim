@@ -992,3 +992,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 set clipboard=unnamedplus
+
+let g:coc_node_path = '~/.nvm/versions/node/v16.14.0/bin/node'
