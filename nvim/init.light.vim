@@ -1,4 +1,4 @@
-source ~/editor-config/nvim/init.vim
+source ~/editor-config/nvim/init.base.vim
 
 colorscheme OceanicNextLight
 let g:airline_theme='oceanicnextlight'
