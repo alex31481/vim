@@ -8,8 +8,8 @@ let g:mapleader = ','
 Plugin 'gmarik/Vundle.vim'
 
 
-Plugin 'flazz/vim-colorschemes'
-Plugin 'trusktr/seti.vim'
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'trusktr/seti.vim'
 
 " Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-capslock'
@@ -18,35 +18,37 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 " Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'scrooloose/syntastic'
+" Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'scrooloose/syntastic'
 Plugin 'tikhomirov/vim-glsl'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 "currently not using plsql with vim the compilation line support is just not there 
 " Plugin 'talek/vorax4'
 " jsx plugin
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
 Plugin 'rking/ag.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/neomru.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
+" Plugin 'Shougo/neomru.vim'
+" Plugin 'Shougo/unite.vim'
+" Plugin 'Shougo/neocomplete.vim'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'Shougo/neosnippet.vim'
+" Plugin 'Shougo/neosnippet-snippets'
 " Plugin 'ujihisa/unite-colorscheme'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tfnico/vim-gradle'
-Plugin 'fatih/vim-go'
+" Plugin 'tfnico/vim-gradle'
+" Plugin 'fatih/vim-go'
 " Plugin 'jonathanfilip/vim-lucius'
-Plugin 'dag/vim-fish'
-Plugin 'sjl/threesome.vim'
+" Plugin 'dag/vim-fish'
+" Plugin 'sjl/threesome.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
-Plugin 'ruanyl/vim-fixmyjs'
+" Plugin 'ruanyl/vim-fixmyjs'
 Plugin 'mhartington/oceanic-next'
 Plugin 'Yggdroot/indentLine'
 Plugin 'bling/vim-bufferline'
+Plugin 'mbbill/undotree'
+Plugin 'Yggdroot/LeaderF'
 "Plugin 'ervandew/SuperTab'
 "Plugin 'mxw/vim-jsx'
 
@@ -74,7 +76,8 @@ set history=1000
 syntax enable
 set autoread
 set autowriteall
-
+set noswapfile
+set nobackup
 set number
 
 set laststatus=2
@@ -184,31 +187,6 @@ au BufRead,BufNewFile *.sql setf=plsql
 
 set t_Co=256
 "no sound on error 
-if has("gui_running")
-	autocmd GUIEnter * set vb t_vb=
-  " set term=xterm-256color
-  if has("win32")
-    set term=win32
-  else
-    set term=xterm-256color
-  endif
-  " colorscheme OceanicNext
-  " let g:airline_theme='oceanicnext'
-  colorscheme OceanicNextLight
-  let g:airline_theme='oceanicnextlight'
-else
-  if(has("win32") || has("win16"))
-    colorscheme industry
-  else
-    colorscheme OceanicNextLight
-    let g:airline_theme='oceanicnextlight'
-  "  colorscheme mustang
-  " else
-  "   colorscheme lucius
-  "   LuciusBlack
-  endif
-endif
-
 
 
 "Line numbers number
@@ -276,8 +254,6 @@ autocmd InsertLeave * set nocul
 " set statusline+=%{fugitive#statusline()}
 " set statusline+=%*
 
-let g:airline_theme='oceanicnextlight'
-let g:airline#extensions#tabline#enabled = 1
 
 
 " air-line
@@ -344,100 +320,14 @@ let delimitMate_expand_space = 1
 let delimitMate_jump_expansion = 1
 
 
-""""""""""""""""""""""""""""""""""""
-"Shougo vim autocomplete stff
-"""""""""""""""""""""""""""""""""""""
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-
-" quick snippet
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-y>" : "\<TAB>"
-inoremap <expr><TAB>
- \ pumvisible() ? "\<C-y>" : "\<TAB>"
-
-
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-colorscheme OceanicNextLight
-let g:airline_theme='oceanicnextlight'
+if has("persistent_undo")
+  set undodir=~/.vim-undo/
+  set undofile
+endif
+nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <C-p> :Leaderf file<cr>

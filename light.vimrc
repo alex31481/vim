@@ -1,7 +1,5 @@
-source ~/editor-config/nvim/init.base.vim
+source ~/editor-config/base.vimrc
 
-colorscheme OceanicNextLight
-let g:airline_theme='oceanicnextlight'
 if has("gui_running")
 	autocmd GUIEnter * set vb t_vb=
   " set term=xterm-256color
@@ -10,13 +8,13 @@ if has("gui_running")
   else
     set term=xterm-256color
   endif
-  colorscheme OceanicNextLight
+  colorscheme oceanicnextlightLight
   let g:airline_theme='oceanicnextlight'
 else
   if(has("win32") || has("win16"))
     colorscheme industry
   else
-    colorscheme OceanicNextLight
+    colorscheme oceanicnextlightLight
     let g:airline_theme='oceanicnextlight'
   "  colorscheme mustang
   " else
@@ -24,5 +22,6 @@ else
   "   LuciusBlack
   endif
 endif
-let g:airline_theme='oceanicnext'
+
+set background=dark
 let g:airline#extensions#tabline#enabled = 1
