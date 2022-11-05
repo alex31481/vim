@@ -21,6 +21,8 @@ set encoding=utf8
 set ignorecase
 
 call plug#begin(bundlePath)
+
+
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhartington/oceanic-next'
 Plug 'scrooloose/nerdtree'
@@ -38,8 +40,7 @@ Plug 'tpope/vim-commentary'
 " Plug 'Shougo/vimproc.vim'
 " Plug 'Shougo/denite.nvim'
 " Plug 'Shougo/neomru.vim'
-Plug 'https://github.com/m-kat/aws-vim'
-"Plug 'Shougo/deoplete.vim'
+" Plug 'Shougo/deoplete.vim'
 " function! DoRemote(arg)
 "   UpdateRemotePlugins
 " endfunction
@@ -59,6 +60,7 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'sbdchd/neoformat'
 Plug 'plytophogy/vim-virtualenv', {'for': ['python']}
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 "Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'fleischie/vim-styled-components'
@@ -993,4 +995,11 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 set clipboard=unnamedplus
 
+set mouse=
 " let g:coc_node_path = '~/.nvm/versions/node/v16.14.0/bin/node'
+"
+" 
+nnoremap <C-p> :Leaderf file<CR>
+nnoremap <space>l :Leaderf line<CR>
+nnoremap <space>g :Leaderf rg<CR>
+nnoremap <space>b :Leaderf buffer<CR>
