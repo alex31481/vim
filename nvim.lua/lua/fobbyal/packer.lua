@@ -22,6 +22,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'easymotion/vim-easymotion'
   use 'folke/tokyonight.nvim'
+  use ('prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' })
+
   -- use {
 	  -- 'VonHeikemen/lsp-zero.nvim',
 	  -- branch = 'v2.x',
