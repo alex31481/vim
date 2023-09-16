@@ -84,4 +84,7 @@ return require('packer').startup(function(use)
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   })
+
+  use ''mileszs/ack.vim'
+
 end)
