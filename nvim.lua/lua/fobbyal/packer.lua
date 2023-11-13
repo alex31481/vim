@@ -85,6 +85,6 @@ return require('packer').startup(function(use)
     ft = { "markdown" },
   })
 
-  use ''mileszs/ack.vim'
+  use 'mileszs/ack.vim'
 
 end)
